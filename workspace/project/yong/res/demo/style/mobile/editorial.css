@@ -1,0 +1,47 @@
+@media screen and (max-width: 768px) {
+  section .label_wrap img {
+    max-width: 80%;
+    max-height: 80%;
+  }
+
+  section .content_wrap .no_wrap font {
+    font-size: 20pt;
+  }
+
+  section .content_wrap .title_wrap font {
+    font-size: 15pt;
+  }
+
+  section .display_up_wrap {
+    width: 75%;
+  }
+
+  section .display_down_wrap {
+    width: 75%;
+  }
+
+  /* ANDOTADAO  */
+  section .display_up_wrap .andotadao_wrap {
+    width: 100%;
+  }
+
+  /* JEJU */
+  section .display_up_wrap .jeju_wrap {
+    width: 100%;
+  }
+
+  /* MOON */
+  section .display_up_wrap .moon_wrap {
+    width: 100%;
+  }
+
+  /* MZONE */
+  section .display_down_wrap .mzone_wrap {
+    width: 100%;
+  }
+
+  /* DRUNK */
+  section .display_down_wrap .drunk_wrap {
+    width: 100%;
+  }
+}

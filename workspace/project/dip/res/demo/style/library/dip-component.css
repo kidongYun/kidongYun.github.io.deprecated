@@ -1,0 +1,13 @@
+.textNormal { background-color: rgba(255, 255, 255, 0); }
+.textNormal textarea { width: 100%; height: 80%; resize: none; background-color: rgba(255, 255, 255, 0); border: solid 0px #ffffff; outline: none; }
+
+.textHeader { background-color: rgba(255, 255, 255, 0); }
+.textHeader textarea { width: 100%; height: 80%; resize: none; background-color: rgba(255, 255, 255, 0); border: solid 0px #ffffff; outline: none; }
+
+.image img { width: 100%; height: 100%; }
+
+.button button { width: 100%; height: 100%; }
+
+.circle { border-radius: 50%; }
+
+.selectedComponent { width: 100%;  }

@@ -1,0 +1,66 @@
+@media screen and (max-width: 768px) {
+  section {
+    width: 100%;
+  }
+
+  section .title_wrap font {
+    font-size: 20pt;
+  }
+
+  section .detail_wrap font {
+    font-size: 7pt;
+    word-break: keep-all;
+  }
+
+  .explain_wrap > .detail_wrap {
+    width: 80%;
+  }
+
+  .design_color_wrap {
+    height: 70%;
+  }
+
+  .design_color_wrap .explain_outer {
+    height: 40%;
+  }
+
+  .design_color_wrap .explain_inner .detail_wrap {
+    width: 100%;
+  }
+
+  .design_color_wrap .dp_top_wrap {
+    height: 30%;
+  }
+
+  .design_color_wrap .dp_bottom_wrap {
+    height: 30%;
+  }
+
+  .design_color_wrap .color_wrap .circle_wrap {
+    height: 40%;
+  }
+
+  .design_color_wrap .color_wrap .rgb_wrap {
+    height: 60%;
+  }
+
+  .design_color_wrap .color_wrap .rgb_wrap font {
+    font-size: 7pt;
+  }
+
+  .signature_horizontal_wrap {
+    height: 70%;
+  }
+
+  .signature_horizontal_wrap .explain_inner .detail_wrap {
+    width: 80%;
+  }
+
+  .signature_horizontal_wrap .label_wrap {
+    height: 60%;
+  }
+
+  .signature_horizontal_wrap .img_wrap {
+    height: 40%;
+  }
+}

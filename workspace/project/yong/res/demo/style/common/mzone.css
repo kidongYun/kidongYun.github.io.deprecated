@@ -1,0 +1,108 @@
+@font-face {
+    font-family: 'NotoSansCJK_Bold';
+    src: url('../../font/NotoSansCJKkr-Bold.otf');
+}
+
+@font-face {
+    font-family: 'NotoSansCJK_DemiLight';
+    src: url('../../font/NotoSansCJKkr-DemiLight.otf');
+}
+
+html {
+  width: 100%;
+  height: 100%;
+}
+
+body {
+  width: 100%;
+  height: 100%;
+  margin: 0px;
+}
+
+a { -webkit-tap-highlight-color:transparent; }
+
+/* SECTION */
+section {
+  width: 100%;
+  height: 100%;
+}
+
+section .no_wrap {
+  position: relative;
+  width: 100%;
+  height: 15%;
+}
+section .no_wrap font {
+  position: absolute;
+  right: 5%;
+  bottom: 0;
+
+  font-family: 'NotoSansCJK_Bold';
+  font-size: 40pt;
+  color: #41e1cc;
+}
+
+section .mockup_wrap {
+  width:  80%;
+  height: 54%;
+  margin: auto;
+}
+
+section .mockup_wrap .first_wrap {
+  float: left;
+  width: 42%;
+  height: 100%;
+}
+
+section .mockup_wrap .first_wrap img {
+  max-width: 100%;
+  max-height: 100%;
+}
+
+section .mockup_wrap .margin {
+  float: left;
+  width: 1%;
+  height: 100%;
+}
+
+section .mockup_wrap .second_wrap {
+  float: left;
+  width: 42%;
+  height: 100%;
+}
+
+section .mockup_wrap .second_wrap img {
+  max-width: 100%;
+  max-height: 100%;
+}
+
+section .title_wrap {
+  position: relative;
+  width:  80%;
+  height: 15%;
+  margin: auto;
+}
+
+section .title_wrap img {
+  position: absolute;
+  max-width: 100%;
+  max-height: 100%;
+  top:0;
+  bottom: 0;
+  margin-top: auto;
+  margin-bottom: auto;
+}
+
+section .explain_wrap {
+  width:  80%;
+  height: 15%;
+  margin: auto;
+}
+
+section .explain_wrap font {
+  font-family: 'NotoSansCJK_DemiLight';
+  font-size: 12pt;
+  color: #949494;
+  word-break: keep-all;
+}
+/* SECTION END */

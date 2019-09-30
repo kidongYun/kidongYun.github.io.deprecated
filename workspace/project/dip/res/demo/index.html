@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title></title>
+    <style media="screen">
+      html, body { padding: 0; margin: 0; width: 100%; height: 100%; }
+      .window { width: 100%; height: 100%; }
+    </style>
+
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <link rel="stylesheet" href="./style/drag.css">
+    <link rel="stylesheet" href="./style/library/dip-component.css">
+    <link rel="stylesheet" href="./style/library/dip.css">
+    <link rel="stylesheet" href="./style/template.css">
+    <link rel="stylesheet" href="./style/init.css">
+    <link rel="shortcut icon" href="./img/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="./img/favicon.ico" type="image/x-icon">
+
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script src="./script/library/dip.js"></script>
+    <script src="./script/library/dip-component.js"></script>
+    <script src="./script/library/dip-project.js"></script>
+    <script src="./script/library/dip-layout.js"></script>
+    <script src="./script/library/dip-hierarchy.js"></script>
+    <script src="./script/key.js"></script>
+    <script src="./script/resize.js"></script>
+    <script src="./script/leftRightAnimation.js"></script>
+    <script src="./script/attribute.js"></script>
+    <script src="./script/directory.js"></script>
+    <script src="./script/clickComponent.js"></script>
+    <script src="./script/editableTitle.js"></script>
+    <script src="./script/dragAndDropComponent.js"></script>
+    <script src="./script/tab.js"></script>
+    <script src="./script/accordion.js"></script>
+    <script src="./script/file.js"></script>
+    <script src="./script/slider.js"></script>
+    <script src="./script/paletteColor.js"></script>
+    <script src="./script/fileUpload.js"></script>
+
+
+    <script>
+    var project;
+    var dip = new Dip();
+    var tabCount, tabId, contentId;
+    </script>
+  </head>
+
+  <body>
+    <!-- window -->
+    <div class="window">
+
+      <!-- navigation -->
+      <div class="nav">
+        <!-- logo -->
+        <div class="logo_layout">
+          <a href="./index.html">
+              <img class="logo" src="./img/DIP_LOGO_template.png" alt="">
+          </a>
+          <div class="logo_dip">Design In Programming</div>
+        </div>
+
+        <div class="tabs">
+          <div class="tabAdd" onclick="addTab()">+</div>
+        </div>
+
+        <div class="saveBtn_layout">
+          <!-- save file -->
+          <div class="file">
+            <button class="fileBtn" onclick="SaveHtml()">제출</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- tool_fixed -->
+      <div class="left" id="left">
+        <div class="controller">
+          <div class="tools_layout">
+            <div class="tools">
+              <button class="component">모양</button>
+              <div class="panel">
+                <div class="boxWrap" id="boxWrap">
+                  <div class="draggable_tools" id="box">
+                    <img src="./img/box.png"/>
+                  </div>
+                </div>
+
+                <div class="circleWrap" id="circleWrap">
+                  <div class="draggable_tools" id="circle">
+                    <img  src="./img/circle.png"/>
+                  </div>
+                </div>
+              </div>
+
+              <button class="component">텍스트</button>
+              <div class="panel">
+                <div class="textNormalWrap" id="textNormalWrap">
+                  <div class="draggable_tools" id="textNormal">
+                    <img src="./img/text_normal.png"/>
+                  </div>
+                </div>
+
+                <div class="textHeaderWrap" id="textHeaderWrap">
+                  <div class="draggable_tools" id="textHeader">
+                    <img src="./img/text_header.png">
+                  </div>
+                </div>
+              </div>
+
+              <button class="component">이미지</button>
+              <div class="panel" id="imgPanel">
+                <div class="imageList" id="imageList">
+                  <div class="imageWrap" id="exSite2_imageWrap">
+                    <div class="draggable_tools" id="exSite2_image">
+                      <img src="./img/sample/exSite2.png" />
+                    </div>
+                  </div>
+                </div>
+
+                <div class="imageAdd">
+                  <form action="" name="" id="imageForm">
+                    <div class="imageFile_layout">
+                      <div class="imgUpload_btn">
+                        <label for="imgUpload">이미지 추가</label>
+                        <input type="file" class="imgFile" id="imgUpload" name="image" accept=".jpg, .jpeg, .png" >
+                      </div>
+                    </div>
+                  </form>
+                </div>
+              </div>
+
+              <button class="component">테이블</button>
+              <div class="panel">
+                <div class="tableWrap" id="tableWrap">
+                  <div class="draggable_tools" id="table">
+                    <img src="./img/table.png"/>
+                  </div>
+                </div>
+              </div>
+
+              <button class="component">버튼</button>
+              <div class="panel">
+                <div class="buttonWrap" id="buttonWrap">
+                  <div class="draggable_tools" id="button">
+                    <p>버튼</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- attribute_fixed -->
+      <div class="right" id="right">
+        <!-- attribute controller -->
+        <div class="attribute_controller">
+          <div class="attribute_controller_layout">
+            <div class="attribute" id="attribute">
+            </div>
+            <!--directory-->
+            <div class="directory" id="directory">
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- center -->
+      <div class="center">
+        <div class="center_layout">
+          <div class="contentAdd">
+          </div>
+        </div>
+      </div>
+    </div>
+     <!-- window End -->
+  </body>
+</html>

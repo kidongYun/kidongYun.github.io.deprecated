@@ -1,0 +1,19 @@
+@media screen and (max-width: 768px) {
+  section .label_wrap img {
+    max-width: 80%;
+    max-height: 80%;
+  }
+
+  .circle_dotted_line_wrap {
+    width: 250px;
+    height: 250px;
+  }
+
+  .content_wrap .no_wrap font {
+    font-size: 20pt;
+  }
+
+  .content_wrap .title_wrap font {
+    font-size: 15pt;
+  }
+}

@@ -1,0 +1,83 @@
+/* index.css (index.css로 옮겨질 예정)*/
+
+/* fixed navigation */
+.nav { width: 100%; height: 70px; position: fixed; padding: 0; margin: 0; }
+.nav_logo { width: 130px; height: 70px; margin-left: 48px; }
+.nav_logo_dip { width: 113px; height: 67px; padding: 2px 8px 1px 9px; }
+.nav_login { width: 150px; height: 30px; position: absolute; right: 48px; top: 0; float: left; padding: 20px 10px 20px 20px; }
+.nav_login a { text-decoration: none; font-size: 14px; font-weight: 200; color: #333; float: left; margin-left: 7px; margin-right: 7px; }
+
+/* container */
+.container { width: 100%; height: 100%; }
+.container_intro { width: 100%; height: 570px; padding-top: 70px; }
+
+/* container_intro_introduce */
+.container_intro_introduce { width: 400px; height: 180px; margin: 0 auto; padding-top: 150px; text-align: center; }
+.container_intro_introduce h1 { font-size: 45px; }
+.container_intro_introduce h3 { font-size: 20px; }
+/* container_intro_startNow_btn */
+.container_intro_startNow_btn { width: 100%; height: 40px; text-align: center; padding: 30px 0 30px 0; }
+.container_intro_startNow_btn input { width: 200px; height: 40px; border: none; border-radius: 5px; background-color: #FFBB00; font-size: 16px; font-weight: 400; }
+.container_intro_startNow_btn input:hover { background-color: #FFCD12; }
+
+/* container_menu */
+.container_menu { width: 100%; height: 70px; }
+.container_menu_layout { width: 33.3%; height: 100%; background-color: #FAECC5; float: left; }
+.container_menu_layout a { width: 100%; height: 100%; text-decoration: none; display: table; color: #333;}
+.container_menu_layout_element { width: 100%; height: 100%; text-align: center; font-weight: bold; font-size: 16px; display: table-cell; vertical-align: middle; }
+.container_menu_layout a:hover { background-color: #FFBB00; font-weight: bold; }
+
+/* container_contents */
+.container_contents { width: 100%; height: 100%; }
+.container_contents_aboutDIP { width: 100%; height: 750px; }
+.element_layout { width: 100%; height: 500px; }
+
+.aboutDIP_title_layout { width: 49%; height: 500px; display: table; float: left; }
+.aboutDIP_title{ width: 100px; height:100px; display: table-cell; vertical-align: middle; text-align: center; }
+.aboutDIP_title h1 { width: 100%; height: 45px; font-size: 60px;  }
+.aboutDIP_title h4 { width: 100%; height: 30px; font-size: 20px; color: #A6A6A6; }
+
+.aboutDIP_body_layout { width: 49%; height: 500px; float: left; }
+.aboutDIP_body { width: 100%; height: 500px; display: table-cell; vertical-align: middle; }
+.aboutDIP_body p { width: 60%; padding-left: 20%; color: #5D5D5D; font-size: 16px; font-weight: bold; }
+
+.aboutDIP_distinction_layout { width: 100%; height: 250px; background-color: #FFBB00; }
+.distinction_element { width: 24.5%; height: 100%; float: left; display: table; }
+.element { width: 100px; height: 150px; text-align: center; font-size: 14px; font-weight: 400; color: #fff; display: table-cell; vertical-align: middle; }
+.element img { width: 64px; height: 64px; }
+
+/* showCase */
+.container_contents_showCase { width: 100%; height: 850px; }
+
+.showCase_title_layout { width: 100%; height: 200px; display: table; }
+.showCase_title { width: 100%; height: 100px; display: table-cell; vertical-align: middle; text-align: center; }
+.showCase_title h1 { width: 100%; font-size: 50px; margin-bottom: -20px; }
+.showCase_title h4 { width: 100%; font-size: 16px; color: #A6A6A6; }
+
+.showCase_case_layout { width: 100%; height: 600px; left: 0; right: 0; overflow: hidden; }
+.case_element_layout { width: 90%; height: 230px; margin: 0 5% 0 5%; }
+.case_element { width: 32.5%; height: auto; left: 0; top: 0; margin: 10px 5px 10px 5px; float: left; text-align: center; }
+.case_element img { width: 100%; min-width: 300px; height: auto; overflow: hidden; }
+
+.showCase_ViewMore_btn { width: 100%; height: 40px; text-align: center; padding: 30px 0 30px 0; margin: 25px 0 25px 0; }
+.showCase_ViewMore_btn input { width: 200px; height: 40px; border: none; border-radius: 5px; background-color: #FFBB00; font-size: 16px; font-weight: 400; }
+.showCase_ViewMore_btn input:hover { background-color: #FFCD12; }
+
+/* contact us */
+.container_contents_contactUs { width: 100%; height: 500px; margin-bottom: 200px; background-color: #FFBB00; }
+
+.contactUs_title_layout { width: 100%; height: 200px; display: table; }
+.contactUs_title { width: 100%; height: 100px; display: table-cell; vertical-align: middle; text-align: center; }
+.contactUs_title h1 { width: 100%; font-size: 50px; margin-bottom: -20px; }
+.contactUs_title h4 { width: 100%; font-size: 16px; color: #000; }
+
+.contactUs_body_layout { width: 100%; height: 300px; display: table; }
+.contactUs_body { width: 100%; height: 150px; display: table-cell; vertical-align: middle; text-align: center; }
+.contactUs_body h3 { width: 100%; height: 20px; font-size: 20px; font-weight: bold; color: #000; }
+.contactUs_body h4 { width: 100%; height: 15px; font-size: 14px; font-weight: bold; color: #F6F6F6; padding: -5px; }
+
+/* tailer */
+.fixed_tailer { width: 100%; height: 50px; bottom: 0; position: fixed; padding: 0; margin: 0; }
+.tailer_top_btn { width: 100%; height: 26px; font-size: 12px; text-align: center; padding: 12px 0 12px 0; }
+.tailer_top_btn input { width: 50px; height: 26px; border: none; border-radius: 45px; background-color: #FFBB00; font-size: 16px; font-weight: 400; }
+.tailer_top_btn input:hover { background-color: #FFCD12; font-weight: bold; }

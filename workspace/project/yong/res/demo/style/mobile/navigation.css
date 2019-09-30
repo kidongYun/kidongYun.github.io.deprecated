@@ -1,0 +1,13 @@
+@media screen and (max-width: 768px) {
+  nav .header_wrap {
+    height: 15%;
+  }
+
+  nav .section_wrap {
+    height: 70%;
+  }
+
+  nav .footer_wrap {
+    height: 15%;
+  }
+}

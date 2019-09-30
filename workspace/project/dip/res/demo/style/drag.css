@@ -1,0 +1,18 @@
+.draggable_tools { width: 50px; height: 50px; margin: 0 auto; }
+.dragging_tools { width: 50px; height: 50px; margin: 0 auto; }
+
+.draggable_workspace { cursor: move; }
+
+#box { width: 50%; height: 100%; float: left; }
+#box img { width: 50%; height: 60%; margin-top: 10px; }
+
+#circle { width: 50%; height: 100%; float: left; }
+#circle img { width: 35%; height: 40%; margin-top: 10px; }
+
+#textNormal { width: 50%; height: 100%; float: left; }
+#textNormal img { width: 35%; height: 40%; margin-top: 10px; }
+
+#textHeader { width: 50%; height: 100%; float: left; }
+#textHeader img { width: 35%; height: 40%; margin-top: 10px; }
+
+#table img { width: 60%; height: 60%; margin-top: 10px; }

@@ -1,0 +1,90 @@
+/* Author : 황  현 */
+
+/* template.css */
+
+html, body { background: #747474; }
+
+/* navigation */
+.nav { width: 100%; height: 34px; display: block; background-color: #262626; border-bottom: 1px solid #BDBDBD; }
+.logo_layout { width: 170px; height: 30px; padding: 3px; float: left; }
+.logo { width: 48px; height: 28px; float: left; }
+.logo_dip { width: 120px; height: 100%; color: #fff; margin-left: 2px; float: left; font-size: 6px; }
+
+.search_layout { width: 170px; height: 30px; float: left; }
+.search { width: 100%; height: 26px; margin: 2px; border: 1px solid #BDBDBD; border-radius: 7px; }
+
+.saveBtn_layout { width: 150px; height: 28px; margin: 3px; float: right; position: absolute; right: 0; }
+.file { width: 100%; height: 100%; }
+.fileBtn { width: 100%; height: 100%; border-radius: 7px; color: #d55e2d; border: 0px solid #000; font-size: 14px; font-weight: bold; }
+
+/* left_fixed */
+.left { width: 11%; height: 100%; float: left; position: fixed; }
+
+.fix_pin_layout { width: 100%; height: 16px; }
+.fixLeft { width: 16px; height: 16px; float: right; margin-right: 2px; }
+
+.controller { width: 100%; height: 100%; margin-right: 10px; }
+.tools_layout { width: 100%; height: 100%; }
+.tools { width: 100%; height: 100%; border-radius: 3px; background: #262626; border: 1px solid #BDBDBD; text-align: center; padding: 7px 3px 7px 3px; overflow: auto; }
+.component { width: 96%; height: 26px; margin-top: 5px; color: #fff; margin-bottom: 3px; border: 1px solid #d55e2d; font-weight: 400; background-color: #333; border-radius: 3px; outline: none; }
+.panel { width: 100%; height: 100%; max-height: 0; overflow: hidden; transition: max-height 0.2s ease-out; }
+.panel img { width: 48px; height: 48px; margin-bottom: -5px; }
+.panel span { font-size: 12px; font-weight: 300; color: #fff; }
+
+.imageFile_layout { display: block; font-size: 10px; color: #000; text-decoration: none;  }
+.imgUpload_btn { display: inline-block; }
+.imgUpload_btn label { display: inline-block; padding: .5em .75em; color: #999; line-height: normal; vertical-align: center; background-color: #fdfdfd; border: 1px solid #ebebeb; border-bottom-color: #e2e2e2; border-radius: .25em; }
+.imgUpload_btn input[type="file"] { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; clip: rect(0,0,0,0); border: 0; }
+
+.boxWrap { }
+.circleWrap { }
+
+.textWrap { width: 100%; height: 100%; }
+.tableWrap { width: 100%; height: 100%; }
+
+/* right */
+.right { width: 11%; height: auto; right: 0; position: fixed; }
+
+.fixRightBtn_layout { width: 100%; height: 16px; }
+.fixRight { width: 16px; height: 16px; float: left; margin-left: 4px; }
+
+.attribute_controller { width: 100%; height: 100%; right: 0; float: right;  }
+.attribute_controller_layout { width: 100%; height: 100%; background: #262626; border: 1px solid #BDBDBD; border-radius: 3px; overflow: auto; }
+
+.attribute { width: 100%; height: 500px; overflow: auto; padding: 7px 2px 7px 2px; }
+.slider_width { width: 100%; height: 2px; }
+.attribute_div { width: 100%; height: 80px; }
+.attribute_name { width : 100%; height: 20px; float: left; font-size: 12px; font-weight: bold; color: #EAEAEA; }
+.input_area { width: 48%; height: 20px; border: 1px solid #fff; background: #353535; color: #fff; }
+.input_btn { width: 48%; height: 24px; text-align: center; margin-top: 4px; font-size: 10px; font-weight: bold; border: 1px solid #fff; border-left: 1px solid #353535; background: #333; color: #8C8C8C; }
+.attribute_blank {width: 100%; height: 20px; }
+#slider_width { width: 96%; height: 6px; padding-bottom: 5px; }
+#slider_height { width: 96%; height: 6px; padding-bottom: 5px; }
+#inputwidth { width: 50%; height: 20px; }
+#amount_width { width: 50%; height: 24px; margin-top: -38px; float: right; background: #262626; }
+#inputheight { width: 50%; height: 20px; }
+#amount_height { width: 50%; height: 24px; margin-top: -38px; float: right; background: #262626; }
+.jscolor { width: 94%; height: 18px; }
+
+.directory { width: 98%; height: 300px; padding: 7px 2px 7px 2px; overflow: auto; }
+
+/* center */
+.center { width: 75%; height: 100%; margin: 0 auto; margin-top: -29px; }
+.center_layout { width: auto; height: 100%; margin: 0 auto; }
+.tabs { width: 70%; height: 34px; float: left; margin-left: 50px; overflow: hidden; }
+.tabLink { height: 100%; border-top-left-radius: 2px; border-top: 1px solid #BDBDBD; border-left: 1px solid #BDBDBD; float: left; transition: 0.3s; padding-left: 5%; padding-right: 5%; cursor: pointer; }
+.tabLink:hover{ background-color: #FAE0D4; }
+.tabClose { width: 15px; height: 100%; background-color: rgb(255, 102, 0); font-size: 10px; color: #fff; text-align: center; border-top: 1px solid #BDBDBD; float: left; cursor: pointer; padding-top: 7px; }
+.tabClose:hover { background-color: #FAE0D4; }
+.tabAdd { width: 20px; height: 100%; background-color: #FFBB00; text-align: center; border-top-right-radius: 2px; border: 1px solid #BDBDBD; float: left; cursor: pointer; padding-top: 4px; }
+
+.tabContent { width: 100%; height: 100%; display: none; border: 1px dotted rgb(255, 102, 0); background-color: #EAEAEA; overflow: auto; }
+.editor{ font-size: 14px; margin-top: auto; border: none; width: 100%; }
+
+
+.iframe { width: 100%; height: 100%; }
+
+.imageWrap { width: 50%; height: 40%; float: left; margin-top: 10px; }
+
+.imageList { width: 100%; height: 80%; overflow-y: scroll; }
+.imageAdd { width: 100%; height: 20%; }

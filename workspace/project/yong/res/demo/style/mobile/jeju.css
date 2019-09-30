@@ -1,0 +1,30 @@
+@media screen and (max-width: 768px) {
+  section .no_wrap font {
+    font-size: 30pt;
+  }
+
+  section .mockup_wrap {
+    height: auto;
+  }
+
+  section .mockup_wrap .first_wrap {
+    float: none;
+    width: 100%;
+    height: auto;
+  }
+
+  section .mockup_wrap .second_wrap {
+    float: none;
+    width: 100%;
+    height: auto;
+  }
+
+  section .title_wrap img {
+    max-width: 50%;
+    max-height: 50%;
+  }
+
+  section .explain_wrap font {
+    font-size: 10pt;
+  }
+}
