@@ -8,7 +8,7 @@ Let's find out the way how to modify your __React__ project when you want to ope
 
 If it doesn't work with showing message like below. the reason doesn't operate is because you did't install the things relate to __CSS Styling__
 
-<img src="/workspace/devlog/react/applyCss/res/1.png">
+<img src="/workspace/devlog/react/apply_css/res/1.png">
 
 so now, we will install 2 packages using __npm__.
 
@@ -22,7 +22,7 @@ follow command below at your _React_ project folder
     .../my_react_express > npm install --save-dev css-loader style-loader
 ```
 
-<img src="/workspace/devlog/react/applyCss/res/2.png">
+<img src="/workspace/devlog/react/apply_css/res/2.png">
 
 ### 2. Update your webpack.config.js file
 

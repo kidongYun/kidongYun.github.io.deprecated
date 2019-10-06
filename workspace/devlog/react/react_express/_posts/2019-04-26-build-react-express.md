@@ -26,13 +26,13 @@ when you want to make __node__ project, you just use command below.
 ```
 if you don't use the option '-y' then you should treat the detail of your new node project.
 
-<img src="/workspace/devlog/react/reactAndExpress/res/1.png">
+<img src="/workspace/devlog/react/react_express/res/1.png">
 
 and you can check __package.json__ file in your project directory.
 
-<img src="/workspace/devlog/react/reactAndExpress/res/2.png">
+<img src="/workspace/devlog/react/react_express/res/2.png">
 
-<img src="/workspace/devlog/react/reactAndExpress/res/3.png">
+<img src="/workspace/devlog/react/react_express/res/3.png">
 
 ### 2. To install __express__, __react__, __react-dom__ at dependecies
 
@@ -42,14 +42,14 @@ follow below command at your folder
     .../my_react_express > npm install -save express react react-dom
 ```
 
-<img src="/workspace/devlog/react/reactAndExpress/res/4.png">
+<img src="/workspace/devlog/react/react_express/res/4.png">
 
 You can see __node_modules__ folder in your react directory.
 and you can also check the new addition, associated with __express__, __react__, __react-dom__ at __dependencies__ of package.json
 
-<img src="/workspace/devlog/react/reactAndExpress/res/5.png">
+<img src="/workspace/devlog/react/react_express/res/5.png">
 
-<img src="/workspace/devlog/react/reactAndExpress/res/6.png">
+<img src="/workspace/devlog/react/react_express/res/6.png">
 
 ### 3. To install __@babel/core__, __@babel/preset-env__, __@babel/preset-react__, __babel-loader__, __webpack__, __webpack-cli__ at devDependecies
 
@@ -61,7 +61,7 @@ follow command below at your folder
 
 and then Let's check your __package.json__ file one more.
 
-<img src="/workspace/devlog/react/reactAndExpress/res/8.png">
+<img src="/workspace/devlog/react/react_express/res/8.png">
 
 __devDependencies__ entry has been added to __package.json__ file, and what is installed in it.
 
@@ -70,7 +70,7 @@ __devDependencies__ entry has been added to __package.json__ file, and what is i
 
 #### First, Let's make 3 folders in your React directory.
 
-<img src="/workspace/devlog/react/reactAndExpress/res/9.png">
+<img src="/workspace/devlog/react/react_express/res/9.png">
 
 follow command below.
 ```
@@ -79,9 +79,9 @@ follow command below.
     .../my_react_express > mkdir src
 ```
 
-<img src="/workspace/devlog/react/reactAndExpress/res/10.png">
+<img src="/workspace/devlog/react/react_express/res/10.png">
 
-<img src="/workspace/devlog/react/reactAndExpress/res/11.png">
+<img src="/workspace/devlog/react/react_express/res/11.png">
 
 #### next step, make 6 files in your React directory.
 
@@ -94,7 +94,7 @@ follow command below.
     .../my_react_express/server/main.js
 ```
 
-<img src="/workspace/devlog/react/reactAndExpress/res/12.png">
+<img src="/workspace/devlog/react/react_express/res/12.png">
 
 ### 5. Let's fill in your new files.
 
@@ -262,6 +262,6 @@ as I mentioned before, if you finished, you can get a __bundle.js__ file.
 
 Finally, Let's go to [localhost:3000](http://localhost:3000)
 
-<img src="/workspace/devlog/react/reactAndExpress/res/13.png">
+<img src="/workspace/devlog/react/react_express/res/13.png">
 
 Thank you for reading so far.
