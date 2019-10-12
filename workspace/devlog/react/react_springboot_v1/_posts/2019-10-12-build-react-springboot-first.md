@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "React - 5. Let's build React with Spring boot Server"
+title:  "React - 5. Let's build React with Spring boot Server ver.1"
 date:   2019-10-12 02:58:54 +0900
 categories: react
 ---
@@ -21,17 +21,17 @@ categories: react
 
 ```
 
-<img src="/workspace/devlog/react/react_springboot/res/1.png">
+<img src="/workspace/devlog/react/react_springboot_v1/res/1.png">
 
-<img src="/workspace/devlog/react/react_springboot/res/2.png">
+<img src="/workspace/devlog/react/react_springboot_v1/res/2.png">
 
 ### java.home 경로 설정
 
 > 상단 메뉴에서 File > Preferences > Settings 으로 들어간 후 jdk를 검색하고 _'Edit in settings.json'_ 눌러 settings.json 파일 안에 java.home 값을 추가한다.
 
-<img src="/workspace/devlog/react/react_springboot/res/3.png">
+<img src="/workspace/devlog/react/react_springboot_v1/res/3.png">
 
-<img src="/workspace/devlog/react/react_springboot/res/4.png">
+<img src="/workspace/devlog/react/react_springboot_v1/res/4.png">
 
 
 ### Spring-boot project 생성
@@ -39,15 +39,15 @@ categories: react
 > Ctrl + Shift + p 를 눌러 나타난 상단 바에 _Spring Initalizr: Generate Maven Project Spring_ 을 선택한다.
 <br><br> Java를 선택하고 원하는 Group Id와 Artifact Id를 작성한다. 예를 들어 Group Id가 _com.example_ 이고 Artifact Id가 _helloworld_ 이라면 패키지는 _com.example.helloworld_ 가 된다. 
 
-<img src="/workspace/devlog/react/react_springboot/res/5.png">
+<img src="/workspace/devlog/react/react_springboot_v1/res/5.png">
 
-<img src="/workspace/devlog/react/react_springboot/res/6.png">
+<img src="/workspace/devlog/react/react_springboot_v1/res/6.png">
 
-<img src="/workspace/devlog/react/react_springboot/res/7.png">
+<img src="/workspace/devlog/react/react_springboot_v1/res/7.png">
 
 > Spring boot 버전은 최신 버전을 선택한다
 
-<img src="/workspace/devlog/react/react_springboot/res/8.png">
+<img src="/workspace/devlog/react/react_springboot_v1/res/8.png">
 
 > 의존성은 아래 두가지 항목을 추가한다.
 
@@ -59,13 +59,13 @@ categories: react
 
 ```
 
-<img src="/workspace/devlog/react/react_springboot/res/9.png">
+<img src="/workspace/devlog/react/react_springboot_v1/res/9.png">
 
-<img src="/workspace/devlog/react/react_springboot/res/10.png">
+<img src="/workspace/devlog/react/react_springboot_v1/res/10.png">
 
 > 파일탐색기가 열리면 프로젝트 생성을 원하는 폴더를 선택한다.
 
-<img src="/workspace/devlog/react/react_springboot/res/11.png">
+<img src="/workspace/devlog/react/react_springboot_v1/res/11.png">
 
 > 성공적으로 프로젝트 생성이 완료되었다면 Open을 클릭해 프로젝트를 열자.
 
@@ -117,7 +117,7 @@ server:
 ### Spring Server 테스트 실행
 > Ctrl + Shift + ` 또는 상단 메뉴에서 터미널을 클릭해 터미널을 띄운 후 프로젝트 루트 디렉토리에서 _mvnm spring-boot:run_ 명령어를 실행하여 서버가 잘 실행되는지 확인한다.
 
-<img src="/workspace/devlog/react/react_springboot/res/12.png">
+<img src="/workspace/devlog/react/react_springboot_v1/res/12.png">
 
 > 실행이 잘 된다면 위와 같은 화면에서 터미널이 request를 listening하는 상태가 된다. 여기까지 한다면 Spring-boot를 활용한 Spring Framework 서버를 구현을 완료한 것이다.
 
@@ -127,7 +127,7 @@ server:
 
 > 새로운 터미널을 하나 더 열고 프로젝트 루트 디렉토리에서 _npm init_ 명령어를 활용해 새로운 노드 프로젝트를 만든다. (모든 질문에 엔터만 눌러도 무방하며, 이 행위의 결과로 단순히 package.json 파일만 생성된다.)
 
-<img src="/workspace/devlog/react/react_springboot/res/13.png">
+<img src="/workspace/devlog/react/react_springboot_v1/res/13.png">
 
 ### React 의존 라이브러리 설치.
 
@@ -141,13 +141,13 @@ server:
 
 ```
 
-<img src="/workspace/devlog/react/react_springboot/res/14.png">
+<img src="/workspace/devlog/react/react_springboot_v1/res/14.png">
 
-<img src="/workspace/devlog/react/react_springboot/res/15.png">
+<img src="/workspace/devlog/react/react_springboot_v1/res/15.png">
 
 > 설치가 잘 진행 되었다면 package.json 파일에 _dependencies_ 항목과 _devDependencies_ 항목에 설치한 라이브러리 이름들이 잘 추가되었을 것이다.
 
-<img src="/workspace/devlog/react/react_springboot/res/16.png">
+<img src="/workspace/devlog/react/react_springboot_v1/res/16.png">
 
 ### webpack 설정
 
@@ -327,7 +327,7 @@ ReactDOM.render(<Page1Page/>, document.getElementById('root'));
 
 > 루트 디렉토리에서 위와 같은 명령어를 작성하게 되면 webpack을 통해 bundle.js 파일을 만들게 된다. watch 옵션을 켜두었음으로 해당 명령어는 종료되지 않고 jsx 파일이 수정되면 자동적으로 새롭게 빌드된다.
 
-<img src="/workspace/devlog/react/react_springboot/res/17.png">
+<img src="/workspace/devlog/react/react_springboot_v1/res/17.png">
 
 ```
     > npm run start
