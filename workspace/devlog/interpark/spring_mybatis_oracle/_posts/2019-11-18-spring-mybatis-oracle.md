@@ -408,3 +408,5 @@ INSERT INTO PERSON VALUES ('martin', 18, SYSDATE);
 > and this query for putting the dummy datas.
 
 <img src="/workspace/devlog/interpark/spring_mybatis_oracle/res/19.png">
+
+<img src="/workspace/devlog/interpark/spring_mybatis_oracle/res/20.png">
