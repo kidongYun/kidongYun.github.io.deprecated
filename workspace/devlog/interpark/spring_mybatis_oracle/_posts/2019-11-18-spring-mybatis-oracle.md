@@ -92,7 +92,7 @@ repositories {
 
 ```
 
-> Actually _mavenCentral()_ is default repository offed by Maven. But there can't serve _OJDBC_ library directly cause Copyright of Oracle. So We should include the code _maven() { url ...}_ to use _ojdbc_
+> Actually _mavenCentral()_ is default repository offered by Maven. But there can't serve _OJDBC_ library directly cause Copyright of Oracle. So We should include the code _maven() { url ...}_ to use _ojdbc_
 
 ```java 
     compile group: 'javax.annotation', name: 'javax.annotation-api', version: '1.3.2'
