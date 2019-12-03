@@ -97,7 +97,7 @@ categories: interpark aws
 
 ### 6. Create Route Table
 
-> When the router find the network to transfor some data to any hosts, It has any rules. this rule information is actually _Route Table_. In real network configuration, The router needs many setting for configuration network. Most of this setting task are definitely the things related to Route Table.  네트워크를 구축할 때에는 라우터에 일종에 설정이 필요한데 이 설정작업의 대부분을 차지하는 것이 바로 이 라우팅 테이블을 잡는 것이다. 쉽게 말하면 어떨 때는 어떤 네트워크로 가고 저럴 때는 저런 네트워크로 가라는 지시를 테이블로 만들어 두는 것이다. 물론 하나하나 설정하는 static한 방법도 있지만 OSPF와 같은 동적인 처리를 하는 방법도 있다. 이런 내용은 AWS를 벗어남으로 다음에 새로운 글에서 적어보도록 하겠다. 결론적으로 라우트 테이블을 생성하는 것은 경로정보를 입력하는 것과 같으며 여기서는 Internat Gateway와 NAT Gateway에게 경로 정보를 주기위해서 생성한다.
+> When the router find the network to transfer some data to any hosts, It has any rules. this rule information is actually _Route Table_. In real network configuration, The router needs many setting for configuration network. Most of this setting task are definitely the things related to Route Table. more easily You can understand that the route table is like the map for the electric data. They can find the destination using this map. when the electric data want to go somewhere, this map will indicate any direction for going this place. sulely, The ways how to set this mapping information are lots of things. for example static, OSPF, and so on. but these ways are not the content for learning AWS. so I will write new article about those when i have the time enough. In here, These route table are created for the Subnets made by us.
 
 <img src="/workspace/devlog/interpark/aws_network_2/res/24.png">
 
@@ -168,13 +168,13 @@ categories: interpark aws
 > Press the 'Subnets' button at the left side menu. Let's connect the rt-public with public subnet installed internet gateway and connect rt-private with private subnet installed NAT gateway.
 
 ```
-    Press public-a > Press Route Table tab below > Press 'Edit route table association' button
+    Press public-a > Press 'Route Table' tab below > Press 'Edit route table association' button
 ```
 
 <img src="/workspace/devlog/interpark/aws_network_2/res/33.png">
 
-> Route Table ID에 rt-public으로 수정하고 Save
+> Please change the Route Table ID to 'rt-public' and then press the 'Save' button.
 
 <img src="/workspace/devlog/interpark/aws_network_2/res/34.png">
 
-> 같은 방법으로 남은 subnet들도 모두 route table를 매핑해주자. private subnet 들은 rt-private route table을 설정하는것을 잊지 말자. 이렇게 까지하면 네트워크 기본 구성은 끝이난다.
+> Let's connect the route table with every Subnets using same way shown above. and Don't forget setting the 'rt-private' for private subnets not 'rt-public'. Thank you for reading my articles. Every basic network setting is finished.
