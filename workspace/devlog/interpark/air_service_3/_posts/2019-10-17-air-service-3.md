@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Interpark - Summary of the study on day 3"
+title:  "Interpark - Summary of the study of Air Service (3/3)"
 date:   2019-10-17 08:47:54 +0900
 categories: interpark
 ---

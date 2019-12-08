@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Interpark - Summary of the study on day 2"
+title:  "Interpark - Summary of the study of Air Service (2/3)"
 date:   2019-10-16 08:47:54 +0900
 categories: interpark
 ---
@@ -55,8 +55,4 @@ categories: interpark
 ### LOAD 율 = 좌석이용률 = 판매좌석 / 총 좌석
 
 > Economy Class안에서도 Class를 Detail하게 나누는 이유는 LOAD 율을 올려 수익을 극대화 하기 위함 <br><br> 자리의 수요에 따라서 운임을 높이고 낮춘다. 그러기 위해서 클래스를 다양하게 구분한다. <br><br> 마지막에 남는 좌석은 땡처리 좌석으로 판매 <br><br> 조기예매를 하면 할인과 같은 정책을 활용. <br><br> Premimum Economy는 중간에 복도가 있어서 뒤로 눕힐 수 있음 그래서 더 비싸게 팜.
-
-
-
-
 
