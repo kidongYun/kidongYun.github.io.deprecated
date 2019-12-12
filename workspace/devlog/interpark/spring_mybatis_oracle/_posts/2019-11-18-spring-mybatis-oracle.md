@@ -66,7 +66,7 @@ repositories {
 dependencies {
     testCompile group: 'junit', name: 'junit', version: '4.11'
     testCompile group: 'junit', name: 'junit', version: '4.12'
-    providedCompile 'javax.servlet:servlet-api:2.5'
+    providedCompile group: 'javax.servlet', name: 'javax.servlet-api', version: '3.1.0'
     runtime 'javax.servlet:jstl:1.1.2'
     compile group: 'javax.annotation', name: 'javax.annotation-api', version: '1.3.2'
 
