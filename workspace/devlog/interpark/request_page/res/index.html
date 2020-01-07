@@ -1,0 +1,58 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+        <link rel="stylesheet" href="./requestPage.css">
+
+        <script  src="http://code.jquery.com/jquery-latest.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+        <script src="./requestPage.js"></script>
+    </head>
+    <body>
+        <div class="card w-75">
+            <div class="card-header">REDIRECT TO THE BELOW PAGE.</div>
+            <div class="card-body">
+                <div class="form-group">
+                    <label for="url">URL</label>
+                    <input type="text" class="form-control" id="url" placeholder="Insert URL">
+                    <small class="form-text text-muted">Please insert the target domain address you want.</small>
+                </div>
+                <div class="form-group">
+                    <label for="parameter">Parameters</label>
+                    <button type="button" class="btn btn-light btn-sm float-right ml-1" onclick="javascript:encode()">encode</button>
+                    <button type="button" class="btn btn-light btn-sm float-right" onclick="javascript:decode()">decode</button>
+                    <input type="text" class="form-control" id="parameter" placeholder="Insert Parameters">
+                    <small class="form-text text-muted">Please insert the parameters as the query string type.</small>
+                </div>
+                <div class="form-group">
+                    <label for="parameterType">Parameter Type</label>
+                    <div class="get-post-btn-container">
+                        <div class="btn-group btn-group-toggle" data-toggle="buttons">
+                            <label class="btn btn-primary active">
+                                <input type="radio" name="getBtn" id="getBtn"> GET
+                            </label>
+                            <label class="btn btn-primary">
+                                <input type="radio" name="postBtn" id="postBtn"> POST
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="charset">Character Type</label>
+                    <div class="dropdown">
+                        <button id="charset" type="button" class="btn btn-dark dropdown-toggle" data-toggle="dropdown">UTF-8</button>
+                        <div class="dropdown-menu">
+                            <a class="dropdown-item" href="javascript:setCharset('UTF-8');">UTF-8</a>
+                            <a class="dropdown-item" href="javascript:setCharset('euc-kr');">euc-kr</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="card-footer">
+                <div class="d-flex justify-content-center">
+                    <button type="button" class="btn btn-danger" onclick="javascript:request();">REQUEST</button>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
