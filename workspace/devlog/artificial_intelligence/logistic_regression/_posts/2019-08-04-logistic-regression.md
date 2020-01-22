@@ -98,8 +98,6 @@ $$ Cost\,Function = yln(h(x)) - (1-y)ln(1 - h(x)) $$
 
 $$ Cost\,Function = {1 \over n} \sum_{i=1}^n (y_iln(h(x_i)) - (1 - y_i)ln(1 - h(x_i))) $$
 
-
-
 ## Gradient Descent
 
 > Cost Function을 Convex한 모양으로 만들었음으로 Gradient Descent 알고리즘을 동일하게 적용하여 Hypothesis의 weight 값과 bias 값을 수정하면 된다. 아래는 Cost Function의 편미분과 Gradient Descent 알고리즘이 적용된 Delta Rule 이다.

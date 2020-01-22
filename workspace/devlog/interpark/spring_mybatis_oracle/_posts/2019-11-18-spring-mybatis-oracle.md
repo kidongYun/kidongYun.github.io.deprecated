@@ -60,7 +60,6 @@ sourceCompatibility = 1.8
 
 repositories {
     mavenCentral()
-    maven() { url "http://repo.spring.io/plugins-release/" }
 }
 
 dependencies {
@@ -75,24 +74,11 @@ dependencies {
 
     compile group: 'org.mybatis', name: 'mybatis-spring', version: '1.1.0'
     compile group: 'commons-dbcp', name: 'commons-dbcp', version: '1.4'
-
-    compile group: 'com.oracle', name: 'ojdbc6', version: '12.1.0.1-atlassian-hosted'
 }
 
 ```
 
-> Please copy & paste the above code to your project.
-
-```java 
-
-repositories {
-    mavenCentral()
-    maven() { url "http://repo.spring.io/plugins-release/" }
-}
-
-```
-
-> Actually _mavenCentral()_ is default repository offered by Maven. But there can't serve _OJDBC_ library directly cause Copyright of Oracle. So We should include the code _maven() { url ...}_ to use _ojdbc_
+> Please copy & paste the above code to your project. Actually _mavenCentral()_ is default repository offered by Maven. But there can't serve _OJDBC_ library directly cause Copyright of Oracle. So We should include the code _maven() { url ...}_ to use _ojdbc_
 
 ```java 
     compile group: 'javax.annotation', name: 'javax.annotation-api', version: '1.3.2'
@@ -120,6 +106,26 @@ repositories {
 > For Connection Pool. Your DB System is better than not when use this.
 
 <img src="/workspace/devlog/interpark/spring_mybatis_oracle/res/6.png">
+
+### 3. import the local _'.jar'_ file
+
+> Create new folder named _'lib'_ for the local jar file _'OJDBC'_.
+
+```
+
+    workspace/src/main/webapp/WEB-INF> mkdir lib
+
+```
+
+> and then Let's copy and paste your local file.
+
+<img src="/workspace/devlog/interpark/spring_mybatis_oracle/res/21.png">
+
+> Press Ctrl + Shift + Alt + S to open the Project Structure window and
+
+```
+    Ctrl + Shift + Alt + S -> Libraries Tab -> '+' Button -> Java > Select your file > Apply 
+```
 
 ### 3. Delete _index.jsp_ files for new one
 
