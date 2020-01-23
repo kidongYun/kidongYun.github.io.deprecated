@@ -13,8 +13,11 @@ function request() {
     form.setAttribute("action", url);
 
     for(let i=0; i < parameters.length; i++) {
-        let name = parameters[i].split("=")[0];
-        let value = parameters[i].split("=")[1];
+        const equalIndex = parameters[i].indexOf("=");
+        let name = parameters[i].substring(0, equalIndex);
+        console.log("name : " + name);
+        let value = parameters[i].substring(equalIndex, parameters[i].length);
+        console.log("value : " + value);
 
         let param = document.createElement("input");
 
@@ -26,7 +29,7 @@ function request() {
     }
 
     document.body.appendChild(form);
-    form.submit();
+    // form.submit();
 }
 
 function getUrl() {

@@ -115,8 +115,8 @@ Spring Framework에서는 Spring container라는 개념을 제공한다. 이는 
         <servlet-name>dispatcher</servlet-name>
         <url-pattern>/</url-pattern>
     </servlet-mapping>
-
 </web-app>
+
 ```
 
 ### WebInitializer.java
@@ -144,7 +144,7 @@ public class WebInitializer implements WebApplicationInitializer {
         dispatcher.setLoadOnStartup(1);
         dispatcher.addMapping("/");
     }
-
+    
 }
 
 ```
