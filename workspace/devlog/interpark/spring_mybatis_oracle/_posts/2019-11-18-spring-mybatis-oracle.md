@@ -42,7 +42,7 @@ categories: interpark spring
 
 <img src="/workspace/devlog/interpark/spring_mybatis_oracle/res/5.png">
 
-### 2. To config the build.gradle
+### 2. Configure the build.gradle
 
 ```java 
 
@@ -107,7 +107,11 @@ dependencies {
 
 <img src="/workspace/devlog/interpark/spring_mybatis_oracle/res/6.png">
 
-### 3. import the local _'.jar'_ file
+### 3. Import the local _'ojdbc6.jar'_ file
+
+> Let's download [ojdbc6.jar]()
+
+> You have to read this thing not the above. the repository for _'OJDBC'_ is not working after yesterday. for solving this problem, We will import the _'OJDBC'_ library locally. that is we will download the _'.jar'_ file related to _'OJDBC'_ and import that thing like the below
 
 > Create new folder named _'lib'_ for the local jar file _'OJDBC'_.
 
@@ -123,11 +127,11 @@ dependencies {
 
 > Press Ctrl + Shift + Alt + S to open the Project Structure window and
 
-```
+```<img src="/workspace/devlog/interpark/spring_mybatis_oracle_java_config/res/3.png">
     Ctrl + Shift + Alt + S -> Libraries Tab -> '+' Button -> Java > Select your file > Apply 
 ```
 
-### 3. Delete _index.jsp_ files for new one
+### 4. Delete _index.jsp_ files for new one
 
 ```
     > rm src/main/webapp/index.jsp
@@ -135,7 +139,7 @@ dependencies {
 
 <img src="/workspace/devlog/interpark/spring_mybatis_oracle/res/7.png">
 
-### 4. Make the Directories and Files.
+### 5. Make the Directories and Files.
 
 ```
     > mkdir src/main/webapp/WEB-INF
@@ -166,7 +170,7 @@ dependencies {
 
 <img src="/workspace/devlog/interpark/spring_mybatis_oracle/res/8.png">
 
-### 5. Setiing for each files.
+### 6. Setiing for each files.
 
 #### src/main/webapp/WEB-INF/web.xml
 
@@ -395,7 +399,7 @@ public class PersonController {
 
 <img src="/workspace/devlog/interpark/spring_mybatis_oracle/res/18.png">
 
-### 6. Make the Person Table using Oracle DB
+### 7. Make the Person Table using Oracle DB
 
 ```sql
 CREATE TABLE PERSON (
