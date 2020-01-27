@@ -18,7 +18,7 @@ layout: home
 
 ### __Knights Landing Processor (슈퍼컴퓨팅 시스템 기술 개발 연구)__
 
-> 슈퍼컴퓨터 환경에서 Data Migration와 Roofline 성능분석 모델을 활용해 Computing Performance를 향상시키는 연구를 진행했습니다. [자세히 보기](/workspace/project/knl/2019/07/24/knights-landing-study/){: target="_blank"}
+> 슈퍼컴퓨터 환경에서 Data Migration와 Roofline 성능분석 모델을 활용해 Computing Performance를 향상시키는 연구를 진행했습니다. [자세히 보기](/workspace/project/knl/2019/07/24/knights-landing-study.html){: target="_blank"}
 
 <img src="/workspace/portfolio/res/paper.png" style="width:80%;"/> 
 

@@ -61,6 +61,23 @@ categories: interpark spring mybatis oracle java config
 
 ```java
 
+plugins {
+    id 'java'
+    id 'war'
+}
+
+apply plugin: 'war'
+
+group 'com.kidongyun'
+version '1.0-SNAPSHOT'
+
+sourceCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
     testCompile group: 'junit', name: 'junit', version: '4.11'
     testCompile group: 'junit', name: 'junit', version: '4.12'
     providedCompile group: 'javax.servlet', name: 'javax.servlet-api', version: '3.1.0'
@@ -73,14 +90,15 @@ categories: interpark spring mybatis oracle java config
     compile group: 'org.mybatis', name: 'mybatis-spring', version: '1.3.2'
     compile group: 'org.mybatis', name: 'mybatis', version: '3.4.6'
     compile group: 'org.apache.commons', name: 'commons-dbcp2', version: '2.0'
+}
 
 ```
 
-> you should type the version of each things. If you dont, You may encounter the error at the console especially mybatis and mybatis-spring. and the detail role of each dependency is written at [here]().
+> You should type the version of each things. If you don't, You may encounter the error at the console especially mybatis and mybatis-spring. and the detail role of each dependency is written at [here](/workspace/devlog/interpark/spring_mybatis_oracle/spring/2019/11/18/spring-mybatis-oracle.html).
 
 ### 4. Import the local _'ojdb6.jar'_ file
 
-> Let's download [ojdbc6.jar]()
+> Let's download [ojdbc6.jar](/workspace/devlog/interpark/spring_mybatis_oracle_java_config/res/ojdbc6.jar){: target="_blank"}
 
 > You have to read this thing not the above. the repository for _'OJDBC'_ is not working after yesterday. for solving this problem, We will import the _'OJDBC'_ library locally. that is we will download the _'.jar'_ file related to _'OJDBC'_ and import that thing like the below
 
