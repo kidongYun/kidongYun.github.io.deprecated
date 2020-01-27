@@ -24,31 +24,31 @@ layout: home
 
 ### __WKU (원광대 앱정보서비스)__
 
-> 기존의 원광대 정보서비스는 오직 데스크탑 기준의 웹서비스만 제공했기에, 항상 불편함을 겪는 원광대 학생들의 편의를 위해 모바일에 UI가 최적화된 어플리케이션을 개발했습니다. [자세히 보기](/workspace/project/wku/2019/05/10/wonkwang-university-application/){: target="_blank"}
+> 기존의 원광대 정보서비스는 오직 데스크탑 기준의 웹서비스만 제공했기에, 항상 불편함을 겪는 원광대 학생들의 편의를 위해 모바일에 UI가 최적화된 어플리케이션을 개발했습니다. [자세히 보기](/workspace/project/wku/2019/05/10/wonkwang-university-application.html){: target="_blank"}
 
 <img src="/workspace/portfolio/res/logo.jpg" style="width:80%;"/>
 
 ### __Yong Portfolio (디자이너 포트폴리오)__
 
-> 디자이너 포트폴리오 전시를 위한 Static Page 입니다. [자세히 보기](/workspace/project/yong/2019/05/22/yong-portfolio){: target="_blank"}
+> 디자이너 포트폴리오 전시를 위한 Static Page 입니다. [자세히 보기](/workspace/project/yong/2019/05/22/yong-portfolio.html){: target="_blank"}
 
 <img src="/workspace/portfolio/res/home.jpg" style="width:80%;"/>
 
 ### __Ecguide (공과대학 안내 시스템)__
 
-> 원광대학교 공과대학이 낯선 분을 위해 키오스크 시스템과 모바일 기기를 활용하여 위치 안내 서비스를 제공합니다. [자세히 보기](/workspace/project/ecguide/2019/07/24/guide-system-for-engineering-college){: target="_blank"}
+> 원광대학교 공과대학이 낯선 분을 위해 키오스크 시스템과 모바일 기기를 활용하여 위치 안내 서비스를 제공합니다. [자세히 보기](/workspace/project/ecguide/2019/07/24/guide-system-for-engineering-college.html){: target="_blank"}
 
 <img src="/workspace/portfolio/res/ecguide.jpg" style="width:80%;"/>
 
 ### __DIP__
 
-> Android Studio이나 Xcode의 Storyboard 처럼 웹디자인 코드를 Drag and Drop형태로 구현하기 위한 프로젝트입니다. [자세히 보기](/workspace/project/dip/2019/07/24/design-in-programming){: target="_blank"}
+> Android Studio이나 Xcode의 Storyboard 처럼 웹디자인 코드를 Drag and Drop형태로 구현하기 위한 프로젝트입니다. [자세히 보기](/workspace/project/dip/2019/07/24/design-in-programming.html){: target="_blank"}
 
 <img src="/workspace/portfolio/res/dip.png" style="width:80%;"/>
 
 ### __원그릇 (원광대 맛집 어플리케이션)__
 
-> 원광대학교 인근 맛집 정보를 공유하기 위한 소셜 커뮤니티 어플리케이션입니다. [자세히 보기](/workspace/project/onebowl/2019/07/24/wonkwang-restaurant-social-application){: target="_blank"}
+> 원광대학교 인근 맛집 정보를 공유하기 위한 소셜 커뮤니티 어플리케이션입니다. [자세히 보기](/workspace/project/onebowl/2019/07/24/wonkwang-restaurant-social-application.html){: target="_blank"}
 
 <img src="/workspace/portfolio/res/onebowl.png" style="width:90%;"/>
 
@@ -60,7 +60,7 @@ layout: home
 
 ### __Artineer (동아리 커뮤니티 사이트)__
 
-> 대학생활 중 학과동아리 아티니어를 창설하였는데, 이 동아리 아티니어 활동을 위한 홈페이지 구축하였습니다. [자세히 보기](/workspace/project/artineer/2019/07/24/artineer){: target="_blank"}
+> 대학생활 중 학과동아리 아티니어를 창설하였는데, 이 동아리 아티니어 활동을 위한 홈페이지 구축하였습니다. [자세히 보기](/workspace/project/artineer/2019/07/24/artineer.html){: target="_blank"}
 
 <img src="/workspace/portfolio/res/artineer.png" style="width:80%;"/>
 
@@ -92,7 +92,7 @@ layout: home
 
 > [Portfolio.pptx](/workspace/portfolio/res/portfolio.pptx){: target="_blank"}
 
-> [portfolio_award.pdf](https://github.com/kidongYun/kidongYun.github.io/files/3417857/portfolio_award.pdf){: target="_blank"}
+> [portfolio_award.pdf](/workspace/portfolio/resportfolio_award.pdf){: target="_blank"}
 
 ### __종합설계 금상__
 > 원광대 앱정보서비스 프로젝트로 종합설계에서 1등을 수상하였습니다.

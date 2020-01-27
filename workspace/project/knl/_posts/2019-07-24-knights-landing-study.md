@@ -21,7 +21,7 @@ categories: project
 
 <br><br>
 
-[[논문] HyDM: Data Migration Methodology for Hybrid Memories.pdf](https://github.com/kidongYun/kidongYun.github.io/files/3417296/knl_paper.pdf){: target="_blank"}
+[[논문] HyDM: Data Migration Methodology for Hybrid Memories.pdf](/workspace/project/knl/res/knl_paper.pdf){: target="_blank"}
 
 [[연구자료] Cache Coherence Protocols.pptx](/workspace/project/knl/res/Cache_Coherence_Protocols.pptx){: target="_blank"}
 

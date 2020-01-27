@@ -27,7 +27,7 @@ menu:
 
 below is your __config.yml_ file before modifying
 
-```
+```yml
 
 title: Development Portfolio
 email: oriondigestive@example.com
@@ -51,7 +51,7 @@ plugins:
 
 and below is your __config.yml_ file after changing
 
-```
+```yml
 
 title: Development Portfolio
 email: oriondigestive@example.com

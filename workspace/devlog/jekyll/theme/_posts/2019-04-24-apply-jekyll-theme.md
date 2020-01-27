@@ -27,7 +27,7 @@ __Don't overwrite the file. Never!__ otherwise your Jekyll service is not operat
 
 please you operate your Jekyll Server using below command at your Jekyll directory.
 
-actually, we already seen this command at  [Jekyll-1 Let's build the jekyll page in local](https://kidongyun.github.io/build-jekyll-page-locally/)
+actually, we already seen this command at  [Jekyll-1 Let's build the jekyll page in local](/workspace/devlog/jekyll/build_local_jekyll/2019/04/19/build-jekyll-page-locally.html)
 
 if you can't understand this, I recommend you looking at the above post.
 

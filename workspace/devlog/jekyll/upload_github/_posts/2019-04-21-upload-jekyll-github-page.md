@@ -13,7 +13,7 @@ Let's go to [github site](https://github.com) and please login your account.
 
 If you don't have, please sign in.
 
-<img src="/workspace/devlog/jekyll/uploadToGithub/res/1.png">
+<img src="/workspace/devlog/jekyll/upload_github/res/1.png">
 
 and then please press __new__ button located on left of this above site
 
@@ -22,7 +22,7 @@ and then please press __new__ button located on left of this above site
 ```
     [username].github.io
 ```
-<img src="/workspace/devlog/jekyll/uploadToGithub/res/2.png">
+<img src="/workspace/devlog/jekyll/upload_github/res/2.png">
 
 you should type your own name at the part of __username__. 
 
@@ -31,7 +31,7 @@ in my case, i wrote 'kidongYun' as you see.
 
 execute __git bash__ and change the directory to your jekyll workspace.
 
-<img src="/workspace/devlog/jekyll/uploadToGithub/res/3.png">
+<img src="/workspace/devlog/jekyll/upload_github/res/3.png">
 I have changed my directory to '.../my_jekyll' as you can see at above picture.
 
 #### following below's code in git bash
@@ -49,7 +49,7 @@ When you completed all of the aboves, you can see the your jekyll page loaded in
 
 maybe your url look like this __https://[username].github.io__
 
-<img src="/workspace/devlog/jekyll/uploadToGithub/res/4.png">
+<img src="/workspace/devlog/jekyll/upload_github/res/4.png">
 
 My page is a bit different from the default pages which already saw at previous post because of __Jekyll Theme__
 

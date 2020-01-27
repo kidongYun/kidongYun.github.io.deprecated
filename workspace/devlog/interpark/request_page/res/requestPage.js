@@ -29,7 +29,7 @@ function request() {
     }
 
     document.body.appendChild(form);
-    // form.submit();
+    form.submit();
 }
 
 function getUrl() {

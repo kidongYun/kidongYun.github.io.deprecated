@@ -109,7 +109,7 @@ dependencies {
 
 ### 3. Import the local _'ojdbc6.jar'_ file
 
-> Let's download [ojdbc6.jar]()
+> Let's download [ojdbc6.jar](/workspace/devlog/interpark/spring_mybatis_oracle/res/ojdbc6.jar)
 
 > You have to read this thing not the above. the repository for _'OJDBC'_ is not working after yesterday. for solving this problem, We will import the _'OJDBC'_ library locally. that is we will download the _'.jar'_ file related to _'OJDBC'_ and import that thing like the below
 
