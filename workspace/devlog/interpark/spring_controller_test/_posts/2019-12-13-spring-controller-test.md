@@ -233,8 +233,68 @@ public class HomeControllerTest {
 
 ```
 
+### 6. Create Application Context directly at the Test Code.
 
-### 6 The way how to test Controller.
+> Actually To use the application context used from production environment is sometimes too hard. If you project is too big, then whenever you do the test, you test code configure your all of things related to application context. so I will introduce the new way to solve these problems.
+
+#### HomeControllerTest.java
+
+```java
+
+@RunWith(SpringJUnit4ClassRunner.class)
+@WebAppConfiguration
+@ContextConfiguration(loader = AnnotationConfigWebContextLoader.class)
+public class HomeControllerTest {
+
+    @Configuration
+    static class ApplicationContext {
+
+        @Bean
+        public HomeController registerHomeController() {
+            HomeController homeController = new HomeController();
+            return homeController;
+        }
+
+        @Bean
+        public HomeService registerHomeService() {
+            HomeService homeService = new HomeService();
+            return homeService;
+        }
+
+    }
+
+    @Autowired
+    HomeController homeController;
+
+    private MockMvc mockMvc;
+
+    @Before
+    public void setUp() throws Exception {
+        mockMvc = MockMvcBuilders.standaloneSetup(homeController).build();
+    }
+
+    @After
+    public void tearDown() throws Exception {
+
+    }
+
+    @Test
+    public void hello() throws Exception {
+        mockMvc.perform(get("/")
+                .param("name", "kidongyun")
+                .param("age", "20")
+                .param("major", "computer engineering"))
+                .andDo(print())
+                .andExpect(status().isOk());
+    }
+
+}
+
+```
+
+> If the object you want to register to application context has another your custom object, then you should register that object either.
+
+### 7. The way how to test Controller.
 
 > First of all, You can measure the result of the connection using this test code. That's exactly status code. and Second, You can check whether the parameter types are correct or not if you want.
 
