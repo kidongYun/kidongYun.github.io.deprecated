@@ -50,7 +50,7 @@ categories: interpark spring junit test-code test mockito
 
 > from many situations of developing, Most of developers use a lot of the time for transforming the data like from JSON to VO or Primitive Type like the map to XML. and Also most of developers always find the errors occurred from what related to transforming. For saving these time, I strongly recommend to make the test code to check the conversion of the data.
 
-### Does the code call the API using HTTP protocol?
+### Does the code call the API from external environment?
 
 > If your system use the API service from outer environment, You can test that these API calling is right or not. for example, Your parameters for requesting the API is right or not, The response is right or not. But You should remember the one thing that This test always has the dependency between the system provided the API. That is if the system providing the API is died, then we can't test out code related to API Calling. But actually it is the critical problem because our test code could be fail although our logic is well. In these case, We gotta use the Mock or Stub Object. Yes. It's the solution of dependency.
 

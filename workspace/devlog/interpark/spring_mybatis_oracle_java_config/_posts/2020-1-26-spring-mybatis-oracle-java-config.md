@@ -456,3 +456,56 @@ INSERT INTO PERSON VALUES ('martin', 18, SYSDATE);
 > Skip.
 
 <img src="/workspace/devlog/interpark/spring_mybatis_oracle_java_config/res/7.png">
+
+### Additional. Change the _'WebConfig.java'_ for adding the _'RootConfig'_
+
+> If you follow the above code style, You can't configure the _'Root Context'_ file separately. But if you follow this code style then you can do that. First of all, You should make the _'RootConfig.java'_ file into the com/kidongyun/config/ directory.
+
+#### RootConfig.java
+
+```java
+
+package com.kidongyun.config;
+
+import org.springframework.context.annotation.ComponentScan;
+import org.springframework.context.annotation.Configuration;
+
+@Configuration
+@ComponentScan(basePackages = {"com.kidongyun"})
+public class RootConfig {
+}
+
+```
+
+> When you want to create the some beans, You can do over there. and You have to change your _'WebConfig.java'_ file for recognizing about your new _'RootConfig.java'_ file.
+
+#### WebConfig.java
+
+```java
+
+package com.kidongyun.config;
+
+import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
+
+public class WebConfig extends AbstractAnnotationConfigDispatcherServletInitializer {
+
+    @Override
+    protected Class<?>[] getRootConfigClasses() {
+        return new Class<?>[] { RootConfig.class };
+    }
+
+    @Override
+    protected Class<?>[] getServletConfigClasses() {
+        return new Class<?>[] { ServletConfig.class };
+    }
+
+    @Override
+    protected String[] getServletMappings() {
+        return new String[] { "/" };
+    }
+
+}
+
+```
+
+> _'getRootConfigClasses()'_ method is for setting the _'RootConfig.java'_ and _'getServletConfigClasses()'_ method is for the _'ServletConfig.java'_ I think it's more better idea than the above configuration.

@@ -73,6 +73,8 @@ public class HomeController {
 
 ### 4. Configure the HomeControllerTest.java
 
+#### HomeControllerTest.java
+
 ```java
 
 import org.junit.After;
@@ -153,7 +155,163 @@ public class HomeControllerTest {
 
 <img src="/workspace/devlog/interpark/spring_controller_test/res/2.png"/> 
 
-### 5 The way how to test Controller.
+### 5. Test Controller using Java Configuration.
 
-> First of all, You can measure the result of the connection usingt this test code. That's exactly status code. and Second, You can check whether the parameter types are correct or not if you want.
+> Actually according to my experience, When you configure your Spring project using the java configruation without xml code, The Controller Test code is little different. But if you don't understand about these things, It may be going to feel too difficult.
+
+#### build.gradle
+
+```java
+
+    testCompile group: 'junit', name: 'junit', version: '4.11'
+    testCompile group: 'junit', name: 'junit', version: '4.12'
+    testCompile group: 'org.mockito', name: 'mockito-all', version: '1.9.5'
+    testCompile group: 'org.springframework', name: 'spring-test', version: '4.3.18.RELEASE'
+    providedCompile group: 'javax.servlet', name: 'javax.servlet-api', version: '3.1.0'
+    runtime 'javax.servlet:jstl:1.1.2'
+    compile group: 'javax.annotation', name: 'javax.annotation-api', version: '1.3.2'
+
+    compile 'org.springframework:spring-webmvc:4.3.18.RELEASE'
+    compile group: 'org.springframework', name: 'spring-jdbc', version: '3.1.0.RELEASE'
+
+    compile group: 'org.mybatis', name: 'mybatis-spring', version: '1.3.2'
+    compile group: 'org.mybatis', name: 'mybatis', version: '3.4.6'
+    compile group: 'org.apache.commons', name: 'commons-dbcp2', version: '2.0'
+
+```
+
+> And you should consider the version of the _'spring-test'_ dependency. in my case, I used 5.X.X version of this, But It's not proper about the 4.X.X _'Spring'_ Environment. So First of all, Let's see the version of libraries via the above code. these dependencies include the function of the _'mybatis'_. so don't confuse about that.
+
+#### HomeControllerTest.java
+
+```java
+
+import org.junit.After;
+import org.junit.Before;
+import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.test.context.ContextConfiguration;
+import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+import org.springframework.test.web.servlet.MockMvc;
+import org.springframework.test.web.servlet.setup.MockMvcBuilders;
+
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
+import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
+
+@RunWith(SpringJUnit4ClassRunner.class)
+@WebAppConfiguration
+@ContextConfiguration(classes = {WebConfig.class, RootConfig.class, ServletConfig.class})
+public class HomeControllerTest {
+
+    @Autowired
+    HomeController homeController;
+
+    private MockMvc mockMvc;
+
+    @Before
+    public void setUp() throws Exception {
+        mockMvc = MockMvcBuilders.standaloneSetup(homeController).build();
+    }
+
+    @After
+    public void tearDown() throws Exception {
+
+    }
+
+    @Test
+    public void hello() throws Exception {
+        mockMvc.perform(get("/")
+                .param("name", "kidongyun")
+                .param("age", "20")
+                .param("major", "computer engineering"))
+                .andDo(print())
+                .andExpect(status().isOk());
+    }
+ }
+
+```
+
+
+### 6 The way how to test Controller.
+
+> First of all, You can measure the result of the connection using this test code. That's exactly status code. and Second, You can check whether the parameter types are correct or not if you want.
+
+#### HomeControllerTest.java
+
+```java
+
+package com.kidongyun.controller;
+
+import com.kidongyun.config.RootConfig;
+import com.kidongyun.config.ServletConfig;
+import com.kidongyun.config.WebConfig;
+import org.junit.After;
+import org.junit.Before;
+import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.test.context.ContextConfiguration;
+import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+import org.springframework.test.context.web.WebAppConfiguration;
+import org.springframework.test.web.servlet.MockMvc;
+import org.springframework.test.web.servlet.MvcResult;
+import org.springframework.test.web.servlet.setup.MockMvcBuilders;
+
+import java.util.HashMap;
+import java.util.Map;
+
+import static org.hamcrest.CoreMatchers.equalTo;
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
+import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
+
+@RunWith(SpringJUnit4ClassRunner.class)
+@WebAppConfiguration
+@ContextConfiguration(classes = {WebConfig.class, RootConfig.class, ServletConfig.class})
+public class HomeControllerTest {
+
+    @Autowired
+    HomeController homeController;
+
+    private MockMvc mockMvc;
+
+    @Before
+    public void setUp() {
+        mockMvc = MockMvcBuilders.standaloneSetup(homeController).build();
+    }
+
+    @After
+    public void tearDown() {
+
+    }
+
+    @Test
+    public void requestResponseHello_validParameters_ShouldBePassed() throws Exception {
+        /** Arrange */
+        MvcResult result = mockMvc.perform(get("/")
+                .param("name", "kidongyun")
+                .param("age", "20")
+                .param("major", "computer"))
+                .andDo(print())
+                .andExpect(status().isOk())
+                .andReturn();
+
+        /** Act */
+        String response = result.getResponse().getContentAsString();
+
+
+        /** Assert */
+        Map<String, Object> expected = new HashMap<>();
+        expected.put("name", "kidongyun");
+        expected.put("age", "20");
+        expected.put("major", "computer");
+
+        assertThat(response, equalTo(expected.toString()));
+    }
+}
+
+```
 
