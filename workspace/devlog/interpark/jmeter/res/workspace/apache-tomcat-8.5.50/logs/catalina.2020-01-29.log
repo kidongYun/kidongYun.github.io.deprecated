@@ -1,0 +1,125 @@
+29-Jan-2020 18:57:07.234 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log 서버 버전 이름:        Apache Tomcat/8.5.50
+29-Jan-2020 18:57:07.238 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server 빌드 시각:          Dec 7 2019 19:19:46 UTC
+29-Jan-2020 18:57:07.239 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server 버전 번호:         8.5.50.0
+29-Jan-2020 18:57:07.239 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log 운영체제 이름:               Mac OS X
+29-Jan-2020 18:57:07.239 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log 운영체제 버전:            10.14.5
+29-Jan-2020 18:57:07.240 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log 아키텍처:          x86_64
+29-Jan-2020 18:57:07.240 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log 자바 홈:             /Library/Java/JavaVirtualMachines/jdk-13.0.1.jdk/Contents/Home
+29-Jan-2020 18:57:07.240 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log JVM 버전:           13.0.1+9
+29-Jan-2020 18:57:07.240 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log JVM 벤더:            Oracle Corporation
+29-Jan-2020 18:57:07.240 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_BASE:         /Users/yun/Documents/Dropbox/Yun_Kidong/Portfolio/workspace/devlog/interpark/jmeter/res/apache-tomcat-8.5.50
+29-Jan-2020 18:57:07.241 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_HOME:         /Users/yun/Documents/Dropbox/Yun_Kidong/Portfolio/workspace/devlog/interpark/jmeter/res/apache-tomcat-8.5.50
+29-Jan-2020 18:57:07.244 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log 명령 행 아규먼트: --add-opens=java.base/java.lang=ALL-UNNAMED
+29-Jan-2020 18:57:07.244 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log 명령 행 아규먼트: --add-opens=java.base/java.io=ALL-UNNAMED
+29-Jan-2020 18:57:07.244 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log 명령 행 아규먼트: --add-opens=java.rmi/sun.rmi.transport=ALL-UNNAMED
+29-Jan-2020 18:57:07.245 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log 명령 행 아규먼트: -Djava.util.logging.config.file=/Users/yun/Documents/Dropbox/Yun_Kidong/Portfolio/workspace/devlog/interpark/jmeter/res/apache-tomcat-8.5.50/conf/logging.properties
+29-Jan-2020 18:57:07.245 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log 명령 행 아규먼트: -Djava.util.logging.manager=org.apache.juli.ClassLoaderLogManager
+29-Jan-2020 18:57:07.245 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log 명령 행 아규먼트: -Djdk.tls.ephemeralDHKeySize=2048
+29-Jan-2020 18:57:07.245 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log 명령 행 아규먼트: -Djava.protocol.handler.pkgs=org.apache.catalina.webresources
+29-Jan-2020 18:57:07.245 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log 명령 행 아규먼트: -Dorg.apache.catalina.security.SecurityListener.UMASK=0027
+29-Jan-2020 18:57:07.245 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log 명령 행 아규먼트: -Dignore.endorsed.dirs=
+29-Jan-2020 18:57:07.245 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log 명령 행 아규먼트: -Dcatalina.base=/Users/yun/Documents/Dropbox/Yun_Kidong/Portfolio/workspace/devlog/interpark/jmeter/res/apache-tomcat-8.5.50
+29-Jan-2020 18:57:07.246 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log 명령 행 아규먼트: -Dcatalina.home=/Users/yun/Documents/Dropbox/Yun_Kidong/Portfolio/workspace/devlog/interpark/jmeter/res/apache-tomcat-8.5.50
+29-Jan-2020 18:57:07.246 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log 명령 행 아규먼트: -Djava.io.tmpdir=/Users/yun/Documents/Dropbox/Yun_Kidong/Portfolio/workspace/devlog/interpark/jmeter/res/apache-tomcat-8.5.50/temp
+29-Jan-2020 18:57:07.246 INFO [main] org.apache.catalina.core.AprLifecycleListener.lifecycleEvent 프로덕션 환경들에서 최적의 성능을 제공하는, APR 기반 Apache Tomcat Native 라이브러리가, 다음 java.library.path에서 발견되지 않습니다: [/Users/yun/Library/Java/Extensions:/Library/Java/Extensions:/Network/Library/Java/Extensions:/System/Library/Java/Extensions:/usr/lib/java:.]
+29-Jan-2020 18:57:07.288 INFO [main] org.apache.coyote.AbstractProtocol.init 프로토콜 핸들러 ["http-nio-8080"]을(를) 초기화합니다.
+29-Jan-2020 18:57:07.306 SEVERE [main] org.apache.catalina.core.StandardService.initInternal Failed to initialize connector [Connector[HTTP/1.1-8080]]
+	org.apache.catalina.LifecycleException: 프로토콜 핸들러 초기화가 실패했습니다.
+		at org.apache.catalina.connector.Connector.initInternal(Connector.java:995)
+		at org.apache.catalina.util.LifecycleBase.init(LifecycleBase.java:136)
+		at org.apache.catalina.core.StandardService.initInternal(StandardService.java:552)
+		at org.apache.catalina.util.LifecycleBase.init(LifecycleBase.java:136)
+		at org.apache.catalina.core.StandardServer.initInternal(StandardServer.java:848)
+		at org.apache.catalina.util.LifecycleBase.init(LifecycleBase.java:136)
+		at org.apache.catalina.startup.Catalina.load(Catalina.java:639)
+		at org.apache.catalina.startup.Catalina.load(Catalina.java:662)
+		at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+		at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+		at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+		at java.base/java.lang.reflect.Method.invoke(Method.java:567)
+		at org.apache.catalina.startup.Bootstrap.load(Bootstrap.java:303)
+		at org.apache.catalina.startup.Bootstrap.main(Bootstrap.java:473)
+	Caused by: java.net.BindException: Address already in use
+		at java.base/sun.nio.ch.Net.bind0(Native Method)
+		at java.base/sun.nio.ch.Net.bind(Net.java:469)
+		at java.base/sun.nio.ch.Net.bind(Net.java:458)
+		at java.base/sun.nio.ch.ServerSocketChannelImpl.bind(ServerSocketChannelImpl.java:220)
+		at java.base/sun.nio.ch.ServerSocketAdaptor.bind(ServerSocketAdaptor.java:88)
+		at org.apache.tomcat.util.net.NioEndpoint.bind(NioEndpoint.java:221)
+		at org.apache.tomcat.util.net.AbstractEndpoint.init(AbstractEndpoint.java:1118)
+		at org.apache.tomcat.util.net.AbstractJsseEndpoint.init(AbstractJsseEndpoint.java:223)
+		at org.apache.coyote.AbstractProtocol.init(AbstractProtocol.java:581)
+		at org.apache.coyote.http11.AbstractHttp11Protocol.init(AbstractHttp11Protocol.java:70)
+		at org.apache.catalina.connector.Connector.initInternal(Connector.java:993)
+		... 13 more
+29-Jan-2020 18:57:07.308 INFO [main] org.apache.coyote.AbstractProtocol.init 프로토콜 핸들러 ["ajp-nio-8009"]을(를) 초기화합니다.
+29-Jan-2020 18:57:07.309 SEVERE [main] org.apache.catalina.core.StandardService.initInternal Failed to initialize connector [Connector[AJP/1.3-8009]]
+	org.apache.catalina.LifecycleException: 프로토콜 핸들러 초기화가 실패했습니다.
+		at org.apache.catalina.connector.Connector.initInternal(Connector.java:995)
+		at org.apache.catalina.util.LifecycleBase.init(LifecycleBase.java:136)
+		at org.apache.catalina.core.StandardService.initInternal(StandardService.java:552)
+		at org.apache.catalina.util.LifecycleBase.init(LifecycleBase.java:136)
+		at org.apache.catalina.core.StandardServer.initInternal(StandardServer.java:848)
+		at org.apache.catalina.util.LifecycleBase.init(LifecycleBase.java:136)
+		at org.apache.catalina.startup.Catalina.load(Catalina.java:639)
+		at org.apache.catalina.startup.Catalina.load(Catalina.java:662)
+		at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+		at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+		at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+		at java.base/java.lang.reflect.Method.invoke(Method.java:567)
+		at org.apache.catalina.startup.Bootstrap.load(Bootstrap.java:303)
+		at org.apache.catalina.startup.Bootstrap.main(Bootstrap.java:473)
+	Caused by: java.net.BindException: Address already in use
+		at java.base/sun.nio.ch.Net.bind0(Native Method)
+		at java.base/sun.nio.ch.Net.bind(Net.java:469)
+		at java.base/sun.nio.ch.Net.bind(Net.java:458)
+		at java.base/sun.nio.ch.ServerSocketChannelImpl.bind(ServerSocketChannelImpl.java:220)
+		at java.base/sun.nio.ch.ServerSocketAdaptor.bind(ServerSocketAdaptor.java:88)
+		at org.apache.tomcat.util.net.NioEndpoint.bind(NioEndpoint.java:221)
+		at org.apache.tomcat.util.net.AbstractEndpoint.init(AbstractEndpoint.java:1118)
+		at org.apache.tomcat.util.net.AbstractJsseEndpoint.init(AbstractJsseEndpoint.java:223)
+		at org.apache.coyote.AbstractProtocol.init(AbstractProtocol.java:581)
+		at org.apache.catalina.connector.Connector.initInternal(Connector.java:993)
+		... 13 more
+29-Jan-2020 18:57:07.310 INFO [main] org.apache.catalina.startup.Catalina.load Initialization processed in 599 ms
+29-Jan-2020 18:57:07.352 INFO [main] org.apache.catalina.core.StandardService.startInternal 서비스 [Catalina]을(를) 시작합니다.
+29-Jan-2020 18:57:07.352 INFO [main] org.apache.catalina.core.StandardEngine.startInternal Starting Servlet Engine: Apache Tomcat/8.5.50
+29-Jan-2020 18:57:07.382 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployWAR 웹 애플리케이션 아카이브 [/Users/yun/Documents/Dropbox/Yun_Kidong/Portfolio/workspace/devlog/interpark/jmeter/res/apache-tomcat-8.5.50/webapps/jmeter.war]을(를) 배치합니다.
+29-Jan-2020 18:57:09.131 INFO [localhost-startStop-1] org.apache.jasper.servlet.TldScanner.scanJars 적어도 하나의 JAR가 TLD들을 찾기 위해 스캔되었으나 아무 것도 찾지 못했습니다. 스캔했으나 TLD가 없는 JAR들의 전체 목록을 보시려면, 로그 레벨을 디버그 레벨로 설정하십시오. 스캔 과정에서 불필요한 JAR들을 건너뛰면, 시스템 시작 시간과 JSP 컴파일 시간을 단축시킬 수 있습니다.
+29-Jan-2020 18:57:10.948 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployWAR 웹 애플리케이션 아카이브 [/Users/yun/Documents/Dropbox/Yun_Kidong/Portfolio/workspace/devlog/interpark/jmeter/res/apache-tomcat-8.5.50/webapps/jmeter.war]의 배치가 [3,565] 밀리초에 완료되었습니다.
+29-Jan-2020 18:57:10.951 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory 웹 애플리케이션 디렉토리 [/Users/yun/Documents/Dropbox/Yun_Kidong/Portfolio/workspace/devlog/interpark/jmeter/res/apache-tomcat-8.5.50/webapps/docs]을(를) 배치합니다.
+29-Jan-2020 18:57:10.972 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory 웹 애플리케이션 디렉토리 [/Users/yun/Documents/Dropbox/Yun_Kidong/Portfolio/workspace/devlog/interpark/jmeter/res/apache-tomcat-8.5.50/webapps/docs]에 대한 배치가 [21] 밀리초에 완료되었습니다.
+29-Jan-2020 18:57:10.973 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory 웹 애플리케이션 디렉토리 [/Users/yun/Documents/Dropbox/Yun_Kidong/Portfolio/workspace/devlog/interpark/jmeter/res/apache-tomcat-8.5.50/webapps/manager]을(를) 배치합니다.
+29-Jan-2020 18:57:11.019 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory 웹 애플리케이션 디렉토리 [/Users/yun/Documents/Dropbox/Yun_Kidong/Portfolio/workspace/devlog/interpark/jmeter/res/apache-tomcat-8.5.50/webapps/manager]에 대한 배치가 [47] 밀리초에 완료되었습니다.
+29-Jan-2020 18:57:11.019 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory 웹 애플리케이션 디렉토리 [/Users/yun/Documents/Dropbox/Yun_Kidong/Portfolio/workspace/devlog/interpark/jmeter/res/apache-tomcat-8.5.50/webapps/examples]을(를) 배치합니다.
+29-Jan-2020 18:57:11.231 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory 웹 애플리케이션 디렉토리 [/Users/yun/Documents/Dropbox/Yun_Kidong/Portfolio/workspace/devlog/interpark/jmeter/res/apache-tomcat-8.5.50/webapps/examples]에 대한 배치가 [212] 밀리초에 완료되었습니다.
+29-Jan-2020 18:57:11.232 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory 웹 애플리케이션 디렉토리 [/Users/yun/Documents/Dropbox/Yun_Kidong/Portfolio/workspace/devlog/interpark/jmeter/res/apache-tomcat-8.5.50/webapps/ROOT]을(를) 배치합니다.
+29-Jan-2020 18:57:11.253 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory 웹 애플리케이션 디렉토리 [/Users/yun/Documents/Dropbox/Yun_Kidong/Portfolio/workspace/devlog/interpark/jmeter/res/apache-tomcat-8.5.50/webapps/ROOT]에 대한 배치가 [21] 밀리초에 완료되었습니다.
+29-Jan-2020 18:57:11.254 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory 웹 애플리케이션 디렉토리 [/Users/yun/Documents/Dropbox/Yun_Kidong/Portfolio/workspace/devlog/interpark/jmeter/res/apache-tomcat-8.5.50/webapps/host-manager]을(를) 배치합니다.
+29-Jan-2020 18:57:11.275 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory 웹 애플리케이션 디렉토리 [/Users/yun/Documents/Dropbox/Yun_Kidong/Portfolio/workspace/devlog/interpark/jmeter/res/apache-tomcat-8.5.50/webapps/host-manager]에 대한 배치가 [20] 밀리초에 완료되었습니다.
+29-Jan-2020 18:57:11.280 INFO [main] org.apache.catalina.startup.Catalina.start Server startup in 3969 ms
+29-Jan-2020 18:57:11.288 SEVERE [main] org.apache.catalina.core.StandardServer.await StandardServer.await: create[localhost:8005]: 
+	java.net.BindException: Address already in use
+		at java.base/sun.nio.ch.Net.bind0(Native Method)
+		at java.base/sun.nio.ch.Net.bind(Net.java:469)
+		at java.base/sun.nio.ch.Net.bind(Net.java:458)
+		at java.base/sun.nio.ch.NioSocketImpl.bind(NioSocketImpl.java:643)
+		at java.base/java.net.ServerSocket.bind(ServerSocket.java:374)
+		at java.base/java.net.ServerSocket.<init>(ServerSocket.java:260)
+		at org.apache.catalina.core.StandardServer.await(StandardServer.java:421)
+		at org.apache.catalina.startup.Catalina.await(Catalina.java:776)
+		at org.apache.catalina.startup.Catalina.start(Catalina.java:722)
+		at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+		at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+		at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+		at java.base/java.lang.reflect.Method.invoke(Method.java:567)
+		at org.apache.catalina.startup.Bootstrap.start(Bootstrap.java:343)
+		at org.apache.catalina.startup.Bootstrap.main(Bootstrap.java:474)
+29-Jan-2020 18:57:11.289 INFO [main] org.apache.coyote.AbstractProtocol.pause 프로토콜 핸들러 ["http-nio-8080"]을(를) 일시 정지 중
+29-Jan-2020 18:57:11.289 INFO [main] org.apache.coyote.AbstractProtocol.pause 프로토콜 핸들러 ["ajp-nio-8009"]을(를) 일시 정지 중
+29-Jan-2020 18:57:11.289 INFO [main] org.apache.catalina.core.StandardService.stopInternal 서비스 [Catalina]을(를) 중지시킵니다.
+29-Jan-2020 18:57:11.343 WARNING [localhost-startStop-1] org.apache.catalina.loader.WebappClassLoaderBase.clearReferencesJdbc 웹 애플리케이션 [jmeter]이(가) JDBC 드라이버 [org.hsqldb.jdbc.JDBCDriver]을(를) 등록했지만, 웹 애플리케이션이 중지될 때, 해당 JDBC 드라이버의 등록을 제거하지 못했습니다. 메모리 누수를 방지하기 위하여, 등록을 강제로 제거했습니다.
+29-Jan-2020 18:57:11.356 INFO [main] org.apache.coyote.AbstractProtocol.stop 프로토콜 핸들러 ["http-nio-8080"]을(를) 중지시킵니다.
+29-Jan-2020 18:57:11.356 INFO [main] org.apache.coyote.AbstractProtocol.destroy 프로토콜 핸들러 ["http-nio-8080"]을(를) 소멸시킵니다.
+29-Jan-2020 18:57:11.356 INFO [main] org.apache.coyote.AbstractProtocol.stop 프로토콜 핸들러 ["ajp-nio-8009"]을(를) 중지시킵니다.
+29-Jan-2020 18:57:11.357 INFO [main] org.apache.coyote.AbstractProtocol.destroy 프로토콜 핸들러 ["ajp-nio-8009"]을(를) 소멸시킵니다.
