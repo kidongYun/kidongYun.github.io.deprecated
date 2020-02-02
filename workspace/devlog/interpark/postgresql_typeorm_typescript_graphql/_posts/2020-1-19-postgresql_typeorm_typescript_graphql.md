@@ -944,8 +944,6 @@ type Query {
   workspace/backend> yarn types
 ```
 
-> 여기에 사진 하나 잘 돌아간거
-
 ### 7. 변환된 typescript 함수 타입을 활용하여 _'GetMessages.resolvers.ts'_ 영역에 비지니스 코드 생성.
 
 > 변환된 함수 타입을 활용하여_'GetMessages.resolvers.ts'_ 안에 비즈니스 코드를 작성한다. 해당 형태는 거의 유사하며 눈에 익혀두거나 코드를 복사해두어 다른 함수 타입들을 생성할 때에도 활용하자.
@@ -1006,6 +1004,8 @@ export default resolvers;
 ```
 
 ```
+
+#### GetMessages() API
 
 query {
   GetMessages(innerChannelId: 1) {
@@ -1122,7 +1122,7 @@ export default resolvers;
 #### 서버 실행
 
 ```
-  workspace/backend> yarn dev
+  workspace/backend> yarn devl
 ```
 
 #### CreateChannel() API
