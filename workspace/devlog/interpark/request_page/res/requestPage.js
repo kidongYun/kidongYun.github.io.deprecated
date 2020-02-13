@@ -16,7 +16,7 @@ function request() {
         const equalIndex = parameters[i].indexOf("=");
         let name = parameters[i].substring(0, equalIndex);
         console.log("name : " + name);
-        let value = parameters[i].substring(equalIndex, parameters[i].length);
+        let value = parameters[i].substring(equalIndex + 1, parameters[i].length);
         console.log("value : " + value);
 
         let param = document.createElement("input");

@@ -1007,13 +1007,14 @@ export default resolvers;
 
 #### GetMessages() API
 
-query {
-  GetMessages(innerChannelId: 1) {
-    ok
-    error
-    messages
-  }
+{ 
+  GetMessages(innerChannelId : 1) { 
+    ok 
+    error 
+    messages { contents } 
+  } 
 }
+
 
 ```
 
@@ -1122,7 +1123,7 @@ export default resolvers;
 #### 서버 실행
 
 ```
-  workspace/backend> yarn devl
+  workspace/backend> yarn dev
 ```
 
 #### CreateChannel() API
