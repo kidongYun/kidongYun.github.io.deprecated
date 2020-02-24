@@ -578,7 +578,10 @@ class Message extends BaseEntity {
     nickname: string;
 
     @Column({type: "text", nullable: false})
-    contenta: string;
+    contents: string;
+
+    @Column({type: "text", nullable: false})
+    thumbnail: string;
 
     // 본인과 대상의 관계까 N : 1 임을 표현할 때 사용하는 어노테이션. Message : Channel = N : 1
     // type에는 대상이 되는 클래스 명을 적고 서로 관계되어있는 컬럼으로 연결지음.
@@ -696,7 +699,7 @@ type Channel {
     id: Int!
     channelName: String!
     messages: [Message]
-    createAt: String!
+    createdAt: String!
     updatedAt: String
 }
 
@@ -709,6 +712,7 @@ type Channel {
 type Message {
   id: Int!
   nickname: String!
+  thumbnail: String!
   contents: String!
   innerChannel: Channel!
   innerChannelId: Int!
@@ -946,7 +950,7 @@ type Query {
 
 ### 7. 변환된 typescript 함수 타입을 활용하여 _'GetMessages.resolvers.ts'_ 영역에 비지니스 코드 생성.
 
-> 변환된 함수 타입을 활용하여_'GetMessages.resolvers.ts'_ 안에 비즈니스 코드를 작성한다. 해당 형태는 거의 유사하며 눈에 익혀두거나 코드를 복사해두어 다른 함수 타입들을 생성할 때에도 활용하자.
+> 변환된 함수 타입을 활용하여 _'GetMessages.resolvers.ts'_ 안에 비즈니스 코드를 작성한다. 해당 형태는 거의 유사하며 눈에 익혀두거나 코드를 복사해두어 다른 함수 타입들을 생성할 때에도 활용하자.
 
 #### GetMessages.reseolvers.ts
 
@@ -1135,3 +1139,223 @@ mutation {
   }
 }
 ```
+
+### _'SendMessage'_, _'GetChannel'_
+
+> 함수타입 즉 API를 만드는 방법은 위 _'GetMessage'_, _'CreateChannel'_ 에서 적응했을 것이다. 이제 앞으로 필요한 두가지 _'SendMessage'_, _'GetChannel'_ API를 만든다.
+
+```
+  workspace/backend/src/api/Message> mkdir SendMessage
+  workspace/backend/src/api/Message> touch SendMessage.graphql
+  workspace/backend/src/api/Message> touch SendMessage.resolvers.ts
+
+  workspace/backend/src/api/Channel> mkdir GetChannel
+  workspace/backend/src/api/Channel> touch GetChannel.graphql
+  workspace/backend/src/api/Channel> touch GetChannel.resolvers.ts
+```
+
+> 윗 부분은 _'SendMessage API'_ 를 위한 파일들이며 아랫 부분은 _'GetChannel API'_ 를 위한 파일들이다. 아래는 각 파일들에 들어가야할 내용들이다.
+
+#### SendMessage.graphql
+
+```ts
+
+type SendMessageResponse {
+    ok: Boolean!
+    error: String
+}
+
+type Mutation {
+    SendMessage(
+        nickname: String!
+        contents: String!
+        thumbnail: String!
+        innerChannelId: Int!
+    ): SendMessageResponse!
+}
+
+```
+
+#### GetChannel.graphql
+
+```ts
+
+type GetChannelsResponse {
+    ok: Boolean!
+    error: String
+    channels: [Channel]
+}
+
+type Query {
+    GetChannels: GetChannelsResponse!
+}
+
+```
+
+> 위 두 파일에 내용을 채워준 후에 _yarn types_ 명령어로 _typescript_ 를 위한 타입을 생성한다. 
+
+```
+  workspace/backend> yarn types
+```
+
+> 정상적으로 생성되었다면 _types/graphql.d.ts_ 파일에 _'SendMessage'_, _'GetChannel'_ 과 연관된 타입들이 생성되었을 것이다. 이제 _resolver_ 안에 비지니스 로직을 완성하자.
+
+#### SendMessage.resolvers.ts
+
+```ts
+
+import { Resolvers } from "src/types/resolvers";
+import Channel from "../../../../src/entities/Channel";
+import Message from "../../../../src/entities/Message";
+import { SendMessageMutationArgs, SendMessageResponse } from "src/types/graphql";
+
+const resolvers: Resolvers = {
+    Mutation:{
+        SendMessage: async(_, args:SendMessageMutationArgs):Promise<SendMessageResponse> => {
+            try {
+                const {nickname, contents, thumbnail, innerChannelId } = args;
+                // args 파라미터에서 필요한 정보들을 가져온다.
+
+                const isExistChannel = await Channel.findOne({id: innerChannelId});
+                // 메시지를 보내려는 채널이 존재하는 채널인지 확인하기 위해 findOne() 쿼리를 날린다.
+                // findOne() 함수는 기존 DB에서 SELECT ... LIMIT 1 와 같은 쿼리로 봐도 무방하다.
+
+                if(!isExistChannel) {
+                    return {
+                        ok: false,
+                        error: "채널이 존재하지 않습니다."
+                    }
+                }
+                // 메시지를 보내려는 채널이 존재하지 않는 케이스를 위해 예외처리를 한다.
+
+                await Message.create({
+                    nickname, 
+                    thumbnail,
+                    contents,
+                    innerChannelId
+                }).save();
+                // create() 함수는 기존 DB의 INSERT ... 쿼리 개념으로 봐도 무방하다.
+                // save() 함수는 기존 DB의 commit 개념으로 보자.
+
+                return {
+                    ok: true,
+                    error: null
+                }
+                // 최종적으로 INSERT가 잘 되었음을 알리기 위해 ok에 true를 주고 반환한다.
+
+            } catch(error) {
+                return {
+                    ok: false,
+                    error: error.message
+                }
+            }
+        }
+    }
+}
+
+export default resolvers;
+
+```
+
+#### GetChannel.resolvers.ts
+
+```ts
+
+import { Resolvers } from "src/types/resolvers";
+import { GetChannelsResponse } from "src/types/graphql";
+import Channel from "../../../../src/entities/Channel";
+
+const resolvers:Resolvers = {
+    Query:{
+        GetChannels: async (_, __):Promise<GetChannelsResponse> => {
+            // args 부분에 __ 값을 주고 있다.
+            // 파라미터가 없을 때에는 위와 같이 처리하는 것 같다.
+
+            try {
+                const channels = await Channel.find();
+                // find() 함수는 기존 RDB의 SELECT .... 와 유사하게 보자.
+                // 채널목록을 가져와서 channels에 저장한다.
+
+                if(!channels) {
+                    return {
+                        ok: true,
+                        error: "It's empty",
+                        channels: null
+                    }
+                }
+                //channels에 아무것도 없다면 channel이 하나도 생성되지 않았다고 예외처리한다.
+
+                return {
+                    ok: true,
+                    error: null,
+                    channels: channels
+                }
+                //channels에 저장된 channel 목록들을 반환한다.
+
+            } catch(error) {
+                return {
+                    ok: false,
+                    error: error.message,
+                    channels: null
+                }
+            }
+        }
+    }
+}
+
+export default resolvers;
+
+```
+
+> 새로 만둔 두 API가 잘 동작하는지 테스트하기 위해서 graphql 서버를 실행하자.
+
+```
+  workspace/backend> yarn dev
+```
+
+<img src="/workspace/devlog/interpark/postgresql_typeorm_typescript_graphql/res/13.png">
+
+> _Graphql_ 에서 사용하는 Query, Mutation 을 활용해 API를 요청해보자
+
+#### SendMessage API
+
+```
+
+mutation { 
+  SendMessage(
+    nickname: "dev4us", 
+    contents: "하이염!", 
+    thumbnail: "1", 
+    innerChannelId: 1
+  ) {
+    ok
+    error 
+  } 
+}
+
+```
+
+<img src="/workspace/devlog/interpark/postgresql_typeorm_typescript_graphql/res/14.png">
+
+<img src="/workspace/devlog/interpark/postgresql_typeorm_typescript_graphql/res/15.png">
+
+#### GetChannels API
+
+```
+
+{ 
+  GetChannels{ 
+    ok 
+    error 
+    channels{ 
+      id 
+      channelName 
+    } 
+  } 
+}
+
+```
+
+<img src="/workspace/devlog/interpark/postgresql_typeorm_typescript_graphql/res/16.png">
+
+### Subscription
