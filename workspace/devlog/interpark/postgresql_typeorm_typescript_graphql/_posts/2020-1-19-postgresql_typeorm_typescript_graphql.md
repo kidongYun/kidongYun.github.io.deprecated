@@ -1359,3 +1359,5 @@ mutation {
 <img src="/workspace/devlog/interpark/postgresql_typeorm_typescript_graphql/res/16.png">
 
 ### Subscription
+
+> Graphql에서 
