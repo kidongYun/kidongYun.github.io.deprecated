@@ -5,50 +5,119 @@ date:   2020-03-16 14:30:54 +0900
 categories: interpark java java8 stream collector reduce
 ---
 
-### 4. What is the Collector ?
+### 1. reduce()
 
-#### reduce()
-
-
-> It's the Reduce Computation already made from Java Developers. If you don't use this about the normal problem, then you always should create the logic for that. Collectors occurs the samples computation for the normal computation like getting the max value, getting the summing of the all values.
-
-#### maxBy()
-
-#### minBy()
-
-#### summingInt()
-
-#### joining()
-
-#### groupingBy()
-
-#### partitioningBy()
-
-> 리듀싱 연산은 모든 스트림 요소들을 처리해서 어떠한 컬렉션, 리스트, 배열따위가 아닌 값으로써 반환을 한다. 함수형 프로그래밍에서는 폴드(Fold)연산이라고도 부르는데 그 이유는 값으로써 추출하는 과정이 종이를 계속 접는 것과 유사하게 연상되기 때문이다.
+> _reduce()_ calculation return the value no like any _list_, _array_, _collection model_. Usually It's called 'Fold' Calculation at the Functional Programming. Because The process getting the value from the stream is so similar to fold the paper.
 
 ```java
 
-    /** 리듀싱 연산 예시 1 */
+    /** Example of the reduce utilizing the Rambda */
     int sum = numbers.stream().reduce(0, (a, b) -> a + b)
 
-    /** 리듀싱 연산 예시 2 */
+    /** Example 2 of the reduce utilizing the Method Reference */
     int sum = numbers.stream().reduce(0, Integer::sum)
 
 ```
-> reduce 함수 안에 들어가는 두 파라미터 중 첫번째는 초기값을 의미하며, 두번째로 오는 함수는 이 초기값을 어떻게 지속으로 연산할지에 대한 정의를 보여준다. 초기값 파라미터를 생략할 수도 있는데 이럴 경우 초기값을 모를 경우에 대한 예외를 처리할 수 없음으로 결과는 Optional 클래스로 반환된다.
+> the first among the _reduce_ parameters means the initial value, the second is the definition mean how to calculate or accumulate about this initial value. Additionally, You can skip the first parameter. but if you do that, the reduce function have to been returned with the _Optional_ class. because The reduce don't know the initial status.
 
 ```java
 
-    /** 초기값이 없는 경우의 리듀싱 연산 예시 */
+    /** Example of the reduce that doesn't have initial value */
     Optional<Integer> sum = numbers.stream().reduce((a, b) -> a + b);
 
 ```
 
-> 외부반복을 활용해서 합산하는 코드를 구현하는 것과 리듀싱 연산을 사용하는 것은 가독성의 면에서도 차이가 두드러지지만 그것보다도 중요하게도 성능면에서 큰 차이를 보인다. 외부반복으로 구현된 코드는 병렬성을 가지기 어렵지만 리듀싱 연산을 활용한다면 손쉽게 병렬성의 장점을 얻어낼 수 있다.
+> External Iteration and Internal Iteration may have two major differences. The one is readable. Internal iteration only need the code related to the 'what do you want' no 'how do we build'. but External iteration is not. and the second one is the performance. It's difficult to give the parallel attribute to External Iteration. but the Internal Iteration case, You can give the parallel thing automatically if you want.
 
+### 2. Collectors
 
-### Collection, Collector, Collet
+> It's the Reduce Computation already made from Java Developers. If you don't use this about the normal problem, then you always should create the logic for that using the reduce function. Collectors class occurs the useful computation for the normal situation like getting the max value, getting the summing of the all values.
 
-> Collection은 컬렉션 프레임워크를 의미하고 컬렉터는 collect() 함수 안에 들어가는 인스턴스. Collect는 collect() 함수를 의미한다.
+#### The difference meaning between Collection, collect, Collectors,
 
-> groupingBy를 활용해서 Map 형태를 구현할 수 있다.
+> They have really similar the term. but they are really different. First of all, Collection is the Collection Framework. Actually We already know about that from previous Java 8. It's for expressing the structure of the data like List, Set, Map. The collect is the one of the function used from the Stream API. Usually it takes the Collectors object including the stream parameter and returns any value like the reduce function. and finally Collectors is the one of the class. It implements the _Collector_ interface. and It can give a lot of the useful function when you need the Collector object.
+
+```
+
+    Collection
+    - It's just the Collection Framework which may know a lot of Java programmer.
+
+    collect()
+    - It's the one of the function used from the Stream API.
+
+    Collectors
+    - It's the implementation of the Collector interface. and They are usually used from collect function.
+
+```
+
+#### maxBy()
+
+```java
+
+    Comparator<Dish> dishCaloriesComparator = Comparator.comparingInt(Dish::getCalories);
+
+    Optional<Dish> mostCaloriesDish = menu.stream().collect(maxBy(dishCaloriesComparator));
+
+```
+
+#### minBy()
+
+```java
+
+    Comparator<Dish> dishCaloriesComparator = Comparator.comparingInt(Dish::getCalories);
+
+    Optional<Dish> mostCaloriesDish = menu.stream().collect(minBy(dishCaloriesComparator));
+
+```
+
+#### summingInt()
+
+```java
+
+    int totalCalories = menu.stream().collect(summingInt(Dish::getCalories));
+
+```
+
+#### joining()
+
+```java
+
+    /** You can merge the set of names using joining function without separator */
+    String shortMenu = menu.stream().map(Dish::getName).collect(joining());
+
+    /** You can merge the set of names using joining function with separator */
+    String shourMenu = menu.stream().map(Dish::getName).collect(joining(", "));
+
+```
+
+#### groupingBy()
+
+> _groupingBy_ function can be overlaid itself like the below. You can make a group using the _filter_ function of the Stream. but if you use the way using _filter_, it doesn't keep the empty status. In other word, if some groups don't have the elements then it will be not exist. 
+
+```java
+
+    Map<Dish.Type, Map<CaloricLevel, List<Dish>>> dishesByTypeCaloricLevel = menu.stream().collect(
+        groupingBy(Dish::getType,
+            groupingBy(dish -> {
+                if(dish.getCalories() <= 400)
+                    return CaloricLevel.DIET;
+                else if(dish.getCalories() <= 700)
+                    return CaloricLevel.NORMAL;
+                else
+                    return CaloricLevel.FAT;
+            })
+        )
+    )
+
+```
+
+#### partitioningBy()
+
+> It's the special case of the groupingBy function. It can separate using only predicate function returning _boolean_ value. and It can be also overlaid itself.
+
+```java
+
+    Map<Boolean, Map<Dish.Type, List<Dish>>> vegetarianDishesByType = menu.stream().collect(
+        partitioningBy(Dish::isVegetarian, groupingBy(Dish::getType)));
+
+```
