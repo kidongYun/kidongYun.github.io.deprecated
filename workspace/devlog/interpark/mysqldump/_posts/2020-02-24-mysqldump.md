@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Interpark - How to use the mysql dump file."
-date:   2020-01-19 11:21:54 +0900
+date:   2020-02-24 11:21:54 +0900
 categories: interpark graphql typescript node
 ---
 
