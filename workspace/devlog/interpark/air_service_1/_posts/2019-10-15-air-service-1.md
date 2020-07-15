@@ -24,7 +24,7 @@ categories: interpark
 ### Package 여행의 주요 구성요소
 
 ```
-q
+
     // 여기서 항공 빼면 시체다.
 
     1. 항공
