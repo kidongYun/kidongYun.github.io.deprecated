@@ -5,47 +5,327 @@ date:   2020-07-15 10:00:00 +0900
 categories: interpark spring
 ---
 
-### 1. 스프링에서 서비스의 필요성
+> During I work as Java developer with Spring Framework, I was thrown into the confusion of the role. How do I build the MVC pattern?, What is better thing?
+I can't always answer about these questions though. This article is the content, which my opinion about the role of each parts of Spring Framework.
 
-> 한 컨트롤러에서 사용하는 모든 로직이 오로지 그 컨트롤러에서만 사용된다고 보장할 수 없다. 예를 들어서 스프링으로 구축된 대학교 시스템이 존재한다고 하자.
-그 안에서 모든 교수들의 월급의 합을 구하는 기능을 만들었을 때 이 기능이 다양한 곳에서 사용이 될 수 있기 때문에 우리는 이런 비지니스 기능들을 독립적으로 두고 다양한 컨트롤러에서
-사용 가능하도록 구현하여야 한다. 
+## 1. The needs of The Spring Service logic
+
+> As you know, The service logic might be necessary on Spring Framework. Let's suppose that the Spring Framework has only controller logic without service thing.
+When you want to share the function, which be made by you, You can not it at this situation. How do you access between each controllers? You might be able to think the below.
+
+```java
+   
+    /** in AController.java */
+    public class AController {
+
+        public void aFunction() {
+                
+        }
+    }
+
+    /** in BController.java */
+    public class BController {
+        public AController aController = new AController();
+
+        public void BFunction() {
+            aController.aFunction();
+        }   
+    }
+
+```
+
+> If You are already the person of familiar with the Spring. You could get that the above code is really stupid thinking cause a lot of reasons. 
+You gotta always keep the independence between all of controllers, But It isn't. And You could not make the parameters of the thing you want from another controllers.
+<br><br> What is the best way to access the __aFunction()__ from BController.java? If you get it, You could understand the needs of service either.
+
+```java
+
+    /** in AController.java */
+    public class AController {
+        CService cService = new CService();
+  
+        public void aFunction() {
+            cService.cFunction();
+        }
+    }
+   
+    /** in BController.java */
+    public class BController {
+        CService cService = new CService();
+
+        public void bFunction() {
+            cService.cFunction();
+        }
+    }
+    
+    /** in CService.java */
+    public class CService {
+        public void cFunction() {
+        }
+    }
+    
+```
+
+> I think that it would be more normal pattern of Spring. You can keep the independence among the your code when you would like to use some function at many places. 
+You can do like the above code whenever you need to create some function. The controllers would be more dependent than the services cause It need to consider the data given from client side.
+<br><br>
+_The important thing is that you have to make the your own functions to the service files when you would like to keep the independence from others._
 
 
-### 2. 서비스에서 함수의 설계
+## 2. Aspect of building a Spring service.
 
-> 테스트 코드 작성이 원활해짐.
+### 2.1 How to offer the parameters.
+
+> To keep the independence of own functions located at service needs to manipulate the parameter properly. 
+First of all, It must get a primitive type data or POJO object. No dependent object like HttpServletRequest.
+
+```java
+
+    /** in Person.java */
+    public class Person {
+        String name;
+        int age;
+    }
+
+    /** in AService.java */
+    public class AService {
+
+        /** It's dependent case. */
+        public void dependentCase(HttpServletRequest request) {
+            String name = request.getParameter("name");
+            int age = request.getParameter("name");
+    
+            // do Something
+        }
+
+        /** It's independent case */
+        public void independentCase(String name, int age) { 
+            // do Something
+        }
+
+        /** It's independent case */
+        public void independentcase(Person person) {
+            String name = person.name();
+            int age = person.age();
+        }
+    }
+```
+
+> If you choose the bad one at the above, then the controller what want to use your function always have to possess the __Request__ object.
 
 
-#### 2.1 파라미터는 모두 독립된 객체로.
+### 2.2 The function in Service has to be pure function.
 
-> 파라미터를 입력받을 때에는 POJO 객체 혹은 양이 적다면 primitive type으로 받자. 어떠한 컨트롤러에서 사용되는 객체를 서비스의 파라미터로 직접 넣어주는게 되면 이는 벌써 그 컨트롤러와 서비스 간에 종속적인 관계가 생겨난다. 즉 그 파라미터를 만들어낼 수 없다면 그 서비스를 호출할 수 없다는 의미이다. 그러면 다른 컨트롤러에서는 이 서비스를 사용하기 어려워 진다. 그렇기에 서비스 에서 함수를 만들때에는 독립적인 순수 함수를 만들기 위해 노력해야하며 그 함수의 파라미터는 그 함수가 필요로 하는 정보들만 받는 것이 좋다.
+> Do you know the concept of a pure function? It's really simple. That function has to be clear. in other words, The result is always same if parameter is equal.
 
-#### 2.2 순수함수로 구현하여라 (외부 리소스를 가져오는 작업은 함수 내부에서 구현하지 말자.)
+```java
 
-> 일반적으로 Functional Programming 을 한다고 하면 입력과 출력이 분명한 순수 함수들로 프로그램을 구현해 하나는 것을 의미한다. 함수 내부에서 새로운 객체를 생성하는 작업이나, 데이터베이스 혹은 API 를 통해 외부 데이터를 가져오는 작업을 수행한다고 하면 이 함수는 좋은 함수가 될수 없다. 개념적인 관점에서 이러한 행위들이 마땅할 수는 있지만, 만약 이렇게 파라미터 이외의 방법으로 데이터들을 가져오게 되면 테스트 코드 작성이 항상 동일한 결과를 도출할 수 없다. 또한 그 함수 자체가 독립적이지 않게 된다. (외부 리소스의 데이터에 따라 값이 달라지기 때문에 외부 환경에 종속적이라는 의미)
+    public class AService {
+        int c = 10;
 
-### 3. 서비스에서의 예외처리
+        public int pureFunction(int a, int b) {
+            return a + b;
+        }
+
+        public int impureFunction(int a, int b) {
+            return a + b + c;
+        }
+    }
+
+```
+
+> the __pureFunction__ always return the same result but impureFunction isn't case the variable named __c__. 
+We can't make sure the result is same if variable c is changed. <br><br>
+Your function located at service should be used by a lot of controllers. but the static variable like __c__ could make some errors unpredicted.
+And It might be most important reason to use the pure function technique that Impure function can't be used the test code.
+
+### 3. The exception handling on the service.
+
+> To check your code in your business for the safety would be important as you know. like to check a Null exception, type casting exception or format things..
+Where is best place for putting this code on Spring Framework? It's really difficult to me and I can't figure it out until now.
+but I just found one fact, which is that the exception handling code be always dependent by some code. Let's see the below codes.
+
+```java
+
+    /** Structure 1. No try-catch syntax */
+    public class AService {
+        public String aFunction() { 
+            return result;
+        }
+    }
+
+    public class AController {
+        AService aService = new AService();
+
+        public String controller() {
+            String result = aService.aFunction();
+ 
+            if("error".equals(result)) {
+                // do error processing
+                return "ERROR";
+            }
+
+            return "SUCCESS";
+        }       
+    }
+
+```
+
+> I think it might be simplest way to create the exception handling code. It doesn't use the __try-catch__ syntax and 
+this structure is processing exception handling at the controller logic. but the longer error code is the more it's too hard to read.
+That is you couldn't understand that main business because the exception handling.
+
+```java
+
+    /** Structure 2. Exception Handling on Controller */
+    public class AService {
+        public String aFunction() { 
+            return result;
+        }
+    }
+
+    public class AController {
+        AService aService = new AService();
+
+        public String controller() {
+
+            try {
+                String result = aService.aFunction();
+              
+                if("error".equals(result)) {
+                    throw new Exception();
+                }   
+
+            } catch(Exception e) {
+                // do error processing
+                return "ERROR";
+            }
+
+            return "SUCCESS";
+        }       
+    }
+
+    /** Structure 3. Exception Handling on Service */
+    public class AService {
+        public String aFunction() { 
+            String result = getFromSomewhere();
+
+            if("error".equals(result)) {
+                throw new Exception();
+            }   
+            
+            return result;
+        }
+    }
+
+    public class AController {
+        AService aService = new AService();
+
+        public String controller() {
+
+            try {
+                String result = aService.aFunction();
+
+            } catch(Exception e) {
+                // do error processing
+                return "ERROR";
+            }
+
+            return "SUCCESS";
+        }       
+    }
+
+```
 
 > 이부분은 솔직히 아직 고민. 정답을 모르겠다. 내 생각은 그렇다. 특정 예외처리 작업은 특정 로직에 사실 언제나 종속적이다. 그래서 하나로 묶어두고 처리를 하고싶은데 이를 위해서는
 try-catch를 잘 활용해야한다. 근데 전반적으로 과장님들에게 여쭤보니 다들 가독성이 좀 떨어진다고 생각하는거 같다. 다들 바로바로 이해를 못하시더라. 근데 이렇게 하면 컨트롤러도 훨씬 깔끔해져서 사실 처음에 그 커다란 한 비즈니스를 이해하는데에는 훨씬 좋다. 예외처리에 대한 코드도 중복이 줄어들고. RESTFUL하게 처리를 하게 되면 공통 예외처리로 사실 대부분의 예외도 잡게 될테니까 사실 내가볼때는 서비스에서 처리하는게 더 나은것 같음.
 
 
-### 4. 중복을 줄이기 위하여
+### 4. For Reducing the redundant codes.
 
-> 서비스의 모든 코드들을 독립적인 모듈로서 작성하게 되면 불가피하게 필요한 한 컨트롤러에 종속적인 작업들은 모두 컨트롤러에서 처리하게 된다. 
+
+```java
+
+    public class AService {
+        public String aFunction() { 
+            String result = getFromSomewhere();
+
+            if("error".equals(result)) {
+                throw new Exception();
+            }   
+            
+            return result;
+        }
+    }
+
+    public class AController {
+        AService aService = new AService();
+
+        public String controller() {
+
+            try {
+                String result = aService.aFunction();
+
+            } catch(Exception e) {
+                // do error processing
+                return "ERROR";
+            }
+
+            return "SUCCESS";
+        }       
+    }
+
+    public class BController {
+        AService aService = new AService();
+
+        public String controller() {
+
+            try {
+                String result = aService.aFunction();
+
+            } catch(Exception e) {
+                // do error processing
+                return "ERROR";
+            }
+
+            return "SUCCESS";
+        }       
+    }
+
+    public class CController {
+        AService aService = new AService();
+
+        public String controller() {
+
+            try {
+                String result = aService.aFunction();
+
+            } catch(Exception e) {
+                // do error processing
+                return "ERROR";
+            }
+
+            return "SUCCESS";
+        }       
+    }
+
+```
+
+> To handle Exception at the service logic is better from a redundant point of view. If not you gotta handle at each controllers are used this.
 
 ```java
     
-    // in Service
-
-    /** 직업 중 개발자만 뽑아 평균 월급을 계산하는 함수 */
     public double calculate(List<Person> people) {
-        List<Person> developers = people.stream()
-                .filter(Person::IsDeveloper)
+        List<Person> professors = people.stream()
+                .filter(Person::IsProfessor)
                 .collect(toList());
 
-        averageSalary =  
+        averageSalary = professors.stream()
+                .map(Person::getSalary)
+                .average()
+                .getAsDouble();
+        
+        return averageSalary;
     }
 ```
 
