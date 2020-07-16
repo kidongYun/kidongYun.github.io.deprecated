@@ -237,12 +237,9 @@ That is you couldn't understand that main business because the exception handlin
 
 ```
 
-> 이부분은 솔직히 아직 고민. 정답을 모르겠다. 내 생각은 그렇다. 특정 예외처리 작업은 특정 로직에 사실 언제나 종속적이다. 그래서 하나로 묶어두고 처리를 하고싶은데 이를 위해서는
-try-catch를 잘 활용해야한다. 근데 전반적으로 과장님들에게 여쭤보니 다들 가독성이 좀 떨어진다고 생각하는거 같다. 다들 바로바로 이해를 못하시더라. 근데 이렇게 하면 컨트롤러도 훨씬 깔끔해져서 사실 처음에 그 커다란 한 비즈니스를 이해하는데에는 훨씬 좋다. 예외처리에 대한 코드도 중복이 줄어들고. RESTFUL하게 처리를 하게 되면 공통 예외처리로 사실 대부분의 예외도 잡게 될테니까 사실 내가볼때는 서비스에서 처리하는게 더 나은것 같음.
-
+> Specific exception handling is always dependent with specific code.
 
 ### 4. For Reducing the redundant codes.
-
 
 ```java
 
@@ -312,21 +309,3 @@ try-catch를 잘 활용해야한다. 근데 전반적으로 과장님들에게 �
 ```
 
 > To handle Exception at the service logic is better from a redundant point of view. If not you gotta handle at each controllers are used this.
-
-```java
-    
-    public double calculate(List<Person> people) {
-        List<Person> professors = people.stream()
-                .filter(Person::IsProfessor)
-                .collect(toList());
-
-        averageSalary = professors.stream()
-                .map(Person::getSalary)
-                .average()
-                .getAsDouble();
-        
-        return averageSalary;
-    }
-```
-
-> 예외처리와 같은 것들. 혹은 서비스의 독립적인 함수들을 묶어서 새로운 함수를 구현하는 것들. 이런것들은 어떨까? 어떻게 생각이 드나
