@@ -24,4 +24,4 @@ It doesn't means that they are not able to explain the core of O.O.P concept.
 the programming language is not a complex. I just believe, someday, some code might be needed the unification at a once and
 we maybe use the function technique for solving it.
 
-> in the programming perspective, The O.O.P use the object __(data + method)__ for the code reusability,
+> in the programming perspective, The O.O.P use the object __(data + method)__ for theusability, code re
