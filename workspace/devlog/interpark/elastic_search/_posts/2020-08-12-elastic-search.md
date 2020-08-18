@@ -112,3 +112,27 @@ categories: interpark ElasticSearch Kibana Logstash
     }
 }
 ```
+
+> 아래의 URI를 GET 형식으로 호출할 경우 이름이 asdasdasd인 인덱스가 존재하는지 확인 할 수 있고 PUT으로 호출할 경우 해당 이름의 인덱스를 생성한다. DELETE는 삭제.
+```JSON
+http://192.168.28.176:9200/asdasdasd?pretty
+```
+
+ex) get
+curl -XGET localhost:9200/classes/class/1
+select * from class where id = 1
+
+
+ex) post
+curl -XPOST localhost:9200/classes/class/1 -d '{xxx}'
+insert into class values (xxx)
+
+
+ex) put
+curl -XPUT localhost:9200/classes/class/1 -d '{xxx}'
+update class set xxx where id = 1;
+
+
+ex) delete
+curl -XDELETE localhost:9200/classes/class/1
+delete from class where id = 1;
