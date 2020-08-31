@@ -90,3 +90,72 @@ default         gateway         0.0.0.0         UG    0      0        0 eth0
 link-local      0.0.0.0         255.255.0.0     U     1002   0        0 eth0
 172.17.0.0      0.0.0.0         255.255.0.0     U     0      0        0 docker0
 180.70.96.0     0.0.0.0         255.255.255.0   U     0      0        0 eth0
+
+
+도커를 설치하게 되면 생기는 일
+Docker를 설치한 후 Host의 네트워크 인터페이스를 살펴보면 docker0라는 가상 인터페이스가 생긴다.
+
+
+[docker@tourDNDCvm71 ~]$ docker network ls
+docker 네트워크 구성이 어떤것들이 있는지 보기위한 커맨드
+
+[docker@tourDNDCvm71 ~]$ docker inspect CONTAINER_ID
+해당 container 에 대한 많은 정보들을 볼수 있는데 여기에 IP정보도 포함되어있다.
+
+docker env 라는 필드에 초기에 환경값을 넣어줄 수 있음. 여기에 호스트 IP값을 넘겨주고
+그다음에 컨테이너 안에서는 이 env값을 참조. 그 후에 java에서는 초기에 톰캣 띄울때 -D 옵션으로 이 값을 주고
+java 안에서 이 파라미터 값을 get
+
+docker env
+도커를 이용하여 컨테이너를 띄울 때, 각 컨테이너는 독립적.
+기본적을 ㅗ달느 컨테이너의 정보를 몰긔때문에 ㅇDocker를 구동하는 호스트에서 환경 변수르 ㄹ통해 외부 정보를 알려줘야할 경우
+이 ENV를 활용
+
+DockerFile
+
+
+[docker@tourDNDCvm71 ~]$ docker run --name test -e HOST_IP=180.70.96.71 -p 38082:38082 -d tour-air-api-product:dev
+tour-air-api-product:dev 라는 이름의 이미지를 실행한다.
+--name 컨테이너의 이름은 test 로 한다.
+-e 환경변수 값으로 HOST_IP = 180.70.96.71 를 넘긴다.
+-p 포트는 호스트 38082 대 컨테이너 38082 로 한다.
+-d : 백그라운드 실행한다
+
+ENTRYPOINT
+컨테이너가 시작되었을 때 스크립트 혹은 명령을 실행합니다. 즉 docker run 명령을 ㅗ컨테이너를 생성하거나, docker start 명령으로 정지도니 커네티어늘 시작할 때 실행.
+Dockerfile에서 단 한번만 사용 가능
+
+
+
+[docker@tourDNDCvm71 dev]$ docker images
+현재 로컬에 존재하는 docker image 들 출력
+
+
+docker exec
+docker exec 명령을 이용하면 된다.  docker exec 는 container에 특정 명령을 실행할 수 있는 것인데 이때 명령을 /bin/bash 라고 하면 된다. 
+
+우리가 "접속" 하고 싶다는 의미는 해당 container 의 shell 에 접속하겠다는 의미이다. 
+
+주의해야할 것은 docker exec 명령을 할때 옵션으로 -it 라고 덧붙여 주어야 한다. 이는 STDIN 표준 입출력을 열고 가상 tty (pseudo-TTY) 를 통해 접속하겠다는 의미이다. 
+
+
+
+root@~~# docker exec -it  c456623003b1 /bin/bash
+
+root@c456623003b1:~# 
+
+
+
+위와 같이 hostname이 해당 container id로 바뀐 것을 볼 수 있다. 즉, container 내부에 접속한 상태라는 것이다. 
+마지막으로 접속을 종료할때는 간단히 exit 명령을 통해 가능하다. 
+
+
+도커에 톰캣
+
+
+shell은 명령어 해석기로 시스템과 사용자간에 대화를 주고받을 수 있도록 도와주는 프로그램.
+bash는 shell 중 하나.
+
+docker exec -it CONTAINER_ID /bin/bash
+는 결국 해당 컨테이너 안에있는 bash 프로그램을 실행시키는 명령어임.
+
