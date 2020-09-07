@@ -7,6 +7,10 @@ categories: interpark docker dockerfile
 
 Docker file
 
+ENTRYPOINT
+컨테이너가 시작되었을 때 스크립트 혹은 명령을 실행합니다. 즉 docker run 명령을 ㅗ컨테이너를 생성하거나, docker start 명령으로 정지도니 커네티어늘 시작할 때 실행.
+Dockerfile에서 단 한번만 사용 가능
+
 FROM busybox:latest
 -> busybox:latest 라는 이미지로 부터 라는 뜻인거 같다.
 
