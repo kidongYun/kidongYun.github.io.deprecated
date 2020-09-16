@@ -57,6 +57,30 @@ I recommend use this option if you need to get the hostname of your host system 
 > docker run -h kidongyun
 ```
 
+> '-v' option can connect the some files from host to the containers. in other words, You can mount the files. If you done this,
+Your container could get the host directories not the directories are copied from the host. That is you can access the modified things
+when you change your source code in host.
+
+```
+> docker run -v /home/docker/kidong/identidock/app:/app kidongyun
+
+> docekr inspect kidongyun
+
+        ...
+
+        "Mounts": [
+            {
+                "Type": "bind",
+                "Source": "/home/docker/kidong/identidock/app",
+                "Destination": "/app",
+                "Mode": "",
+                "RW": true,
+                "Propagation": "rprivate"
+            }
+        ],
+
+```
+
 #### docker ps
 
 > This command would be used a lot of the time, This command give to use the information related to the docker container.
