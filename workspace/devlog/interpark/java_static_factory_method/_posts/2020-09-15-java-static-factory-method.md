@@ -84,6 +84,3 @@ class Main {
 
 > A constructor always use with 'new' keyword so It' too hard to create the object as the singleton type when you use a constructor way.
 We could achieve the immutability attribute like the above way whenever we want to do that.
-
-
-#### 3. 
