@@ -11,7 +11,7 @@ public abstract class Pizza {
     abstract static class Builder<T extends Builder<T>> {
         EnumSet<Topping> toppings = EnumSet.noneOf(Topping.class);
         public T addTopping(Topping topping) {
-            toppings.add(Objects.requireNonNull(topping));
+            toppings.add(topping);
             return self();
         }
 
@@ -50,5 +50,30 @@ class NyPizza extends Pizza {
     private NyPizza(Builder builder) {
         super(builder);
         size = builder.size;
+    }
+}
+
+class Member {
+    private String name;
+    private String tel;
+    private String email;
+    private int age;
+
+    public Member(String name, String tel, String email, int age) {
+        this.name = name;
+        this.tel = tel;
+        this.email = email;
+        this.age = age;
+    }
+}
+
+class Member {
+    private String name;
+    private String tel;
+    private String email;
+    private int age;
+
+    public static of(String name, String tel, String email, int age) {
+
     }
 }
