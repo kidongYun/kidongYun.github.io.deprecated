@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Interpark - Private constructor on the util class"
-date:   2020-03-16 11:21:54 +0900
+date:   2020-09-22 11:21:54 +0900
 categories: interpark java util class 
 ---
 
