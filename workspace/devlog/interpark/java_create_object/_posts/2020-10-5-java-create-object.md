@@ -1,9 +1,4 @@
----
-layout: post
-title:  "Interpark - Create Object on Java Language"
-date:   2020-03-16 14:30:54 +0900
-categories: java object create
----
+>
 
 ### 1. Static Factory Method
 
@@ -252,7 +247,7 @@ class Main {
 
 ```java
 
-public class Person {
+class Person {
     private String name;
     private String sex;
     private String country;
@@ -303,6 +298,13 @@ class Main {
 }
 
 ```
+> This way should keep the consistency. That means It could not change the object attributes after creating instance.
+Many things are similar with Setter pattern. It would be only main difference between them.
+
+> It's little difficult to use builder pattern when you object has hierarchy structure.
+
+
+### 3. Singleton
 
 ### 3. Util-class should have the private constructor.
 
